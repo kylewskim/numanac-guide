@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Map, BookOpen, CheckSquare, Bot, CloudSun, Users, Settings } from "lucide-react";
+import { ArrowRight, Map, BookOpen, CheckSquare, Bot, CloudSun, Users, Settings, Smartphone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Feature Guides",
@@ -57,6 +57,13 @@ const guides = [
     description: "Manage your account, billing, notifications, and farm details.",
     href: "/guides/settings",
     color: "bg-gray-100 text-gray-600",
+  },
+  {
+    icon: Smartphone,
+    title: "Add to Home Screen",
+    description: "Install Numanac on your iPhone or Android so it opens like a native app.",
+    href: "/guides/install",
+    color: "bg-teal-50 text-teal-600",
   },
 ];
 

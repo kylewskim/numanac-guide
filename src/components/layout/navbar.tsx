@@ -15,6 +15,7 @@ import {
   CloudSun,
   Users,
   Settings,
+  Smartphone,
   ChevronDown,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -27,6 +28,7 @@ const guides = [
   { href: "/guides/weather", label: "Weather", icon: CloudSun },
   { href: "/guides/team", label: "Team & Collaboration", icon: Users },
   { href: "/guides/settings", label: "Settings", icon: Settings },
+  { href: "/guides/install", label: "Add to Home Screen", icon: Smartphone },
 ];
 
 export function Navbar() {
@@ -126,16 +128,8 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* CTA + Mobile Menu */}
+          {/* Mobile Menu */}
           <div className="flex items-center gap-3">
-            <Button
-              asChild
-              size="sm"
-              className="hidden md:flex h-8 px-3 text-xs bg-gray-900 hover:bg-gray-700 text-white"
-            >
-              <Link href="/ask">Ask Alma</Link>
-            </Button>
-
             {/* Mobile Menu */}
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
@@ -189,13 +183,6 @@ export function Navbar() {
                   >
                     FAQ
                   </Link>
-                  <div className="mt-4 px-3">
-                    <Button asChild className="w-full bg-gray-900 hover:bg-gray-700 text-white">
-                      <Link href="/ask" onClick={() => setMobileOpen(false)}>
-                        Ask Alma
-                      </Link>
-                    </Button>
-                  </div>
                 </div>
               </SheetContent>
             </Sheet>
