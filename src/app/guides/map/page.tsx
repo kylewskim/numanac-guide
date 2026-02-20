@@ -80,16 +80,22 @@ export default function MapGuidePage() {
                 step={1}
                 title='Tap the "+" button'
                 description="You'll find the + button in the bottom-right corner of the map screen."
+                image="/screenshots/map/map-clean.png"
+                imageAlt="Map screen showing the + button in the bottom-right corner"
               />
               <StepCard
                 step={2}
-                title='Select "Field"'
-                description="In the menu that appears, tap Field (the square icon) to start drawing a boundary."
+                title='Select "Field View"'
+                description="In the menu that appears, tap Field View (the square icon) to start drawing a boundary."
+                image="/screenshots/map/map-add-menu.png"
+                imageAlt="Add menu showing Field View and Tract View options"
               />
               <StepCard
                 step={3}
                 title="Tap points around your field"
                 description="Tap each corner of your field on the map to place markers. The app will draw lines between them to form the boundary."
+                image="/screenshots/map/map-draw-boundary.png"
+                imageAlt="Map in boundary drawing mode"
                 tip="You need at least 3 points to create a boundary."
               />
               <StepCard
@@ -111,6 +117,8 @@ export default function MapGuidePage() {
                 step={7}
                 title="Done!"
                 description="Your field boundary now appears on the map. You can tap on it anytime to view its details or log activities for it."
+                image="/screenshots/map/map-overview.png"
+                imageAlt="Map overview showing field boundaries"
               />
             </div>
 
@@ -129,8 +137,10 @@ export default function MapGuidePage() {
             <div className="space-y-0">
               <StepCard
                 step={1}
-                title='Tap "+" → "Tract"'
-                description="From the map, tap the + button and select Tract."
+                title='Tap "+" → "Tract View"'
+                description="From the map, tap the + button and select Tract View."
+                image="/screenshots/map/map-add-menu.png"
+                imageAlt="Add menu showing Field View and Tract View options"
               />
               <StepCard
                 step={2}
@@ -153,6 +163,13 @@ export default function MapGuidePage() {
               title="Map Layers"
               subtitle="Turn on data layers to see more information overlaid on your map."
             />
+            <div className="mb-6 rounded-xl overflow-hidden border bg-gray-50 max-w-sm">
+              <img
+                src="/screenshots/map/map-layers-menu.png"
+                alt="Map layers menu"
+                className="w-full h-auto"
+              />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FeatureCard
                 icon={Layers}

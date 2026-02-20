@@ -36,17 +36,23 @@ export default function SignupPage() {
           step={1}
           title="Go to site.numanac.com"
           description="Open your browser and type site.numanac.com in the address bar, or open the Numanac app on your phone."
+          image="/screenshots/onboarding/login-screen.png"
+          imageAlt="Numanac login screen"
         />
         <StepCard
           step={2}
           title="Enter your email address"
           description='Type your email address and click the "Continue" button. You can also click "Sign in with Google", "Sign in with GitHub", or "Sign in with Apple" to use an existing account.'
+          image="/screenshots/onboarding/signup-email.png"
+          imageAlt="Email entry screen"
           tip="Using Google, GitHub, or Apple sign-in is the fastest option — no password needed."
         />
         <StepCard
           step={3}
           title="Enter your name and information"
           description='Fill in your first name, last name, and email address, then click the "Continue" button.'
+          image="/screenshots/onboarding/signup-password.png"
+          imageAlt="Password entry screen"
         />
         <div className="flex gap-4 pb-8 ml-14">
           <div className="flex-1" />

@@ -30,6 +30,13 @@ export default function SettingsGuidePage() {
             id="overview"
             title="What You Can Manage in Settings"
           />
+          <div className="mb-6 rounded-xl overflow-hidden border bg-gray-50 max-w-xs">
+            <img
+              src="/screenshots/settings/settings-main.png"
+              alt="Numanac Settings screen"
+              className="w-full h-auto"
+            />
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FeatureCard
               icon={User}

@@ -98,11 +98,15 @@ export default function AlmaGuidePage() {
                 step={1}
                 title='Tap the "Chat" tab'
                 description="The Chat tab is in the bottom navigation bar of the app."
+                image="/screenshots/alma/chat-main.png"
+                imageAlt="Chat tab main screen with Alma"
               />
               <StepCard
                 step={2}
                 title="Type your question or tap the mic to speak"
                 description="You can type in any language. Alma will respond in the same language you use."
+                image="/screenshots/alma/chat-query-typed.png"
+                imageAlt="Chat screen with a question typed in the input field"
                 examples={[
                   "What happened in field 3 last week?",
                   "How many irrigation records do I have this month?",
@@ -132,6 +136,8 @@ export default function AlmaGuidePage() {
                 step={1}
                 title={`Tap "Add Focus" in the Chat screen`}
                 description={`You'll see the "Add Focus" button near the top of the chat interface.`}
+                image="/screenshots/alma/chat-focus-modal.png"
+                imageAlt="Chat screen showing the Add Focus button and focus selection modal"
               />
               <StepCard
                 step={2}
