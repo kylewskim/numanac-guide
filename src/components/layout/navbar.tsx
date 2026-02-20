@@ -128,8 +128,18 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Mobile Menu */}
+          {/* CTA + Mobile Menu */}
           <div className="flex items-center gap-3">
+            <Button
+              asChild
+              size="sm"
+              className="hidden md:flex h-8 px-3 text-xs bg-primary hover:bg-primary/90 text-white"
+            >
+              <a href="https://site.numanac.com" target="_blank" rel="noopener noreferrer">
+                Get Started
+              </a>
+            </Button>
+
             {/* Mobile Menu */}
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
