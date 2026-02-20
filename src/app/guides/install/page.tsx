@@ -91,7 +91,7 @@ export default function InstallGuidePage() {
                 tip='The Numanac icon will appear on your home screen. Tap it anytime to open the app instantly.'
               />
             </div>
-            <TipBox text="If you don't see the Share button, scroll up on the page first — it appears at the bottom of the Safari browser." />
+            <TipBox>If you don&apos;t see the Share button, scroll up on the page first — it appears at the bottom of the Safari browser.</TipBox>
           </section>
 
           {/* Android */}
@@ -124,7 +124,7 @@ export default function InstallGuidePage() {
                 tip="The Numanac icon will now appear on your Android home screen, ready to open with one tap."
               />
             </div>
-            <TipBox text={`If you see a browser prompt at the bottom of the screen saying "Add Numanac to Home screen", you can tap that directly — it's a shortcut to the same step.`} />
+            <TipBox>If you see a browser prompt at the bottom of the screen saying &quot;Add Numanac to Home screen&quot;, you can tap that directly — it&apos;s a shortcut to the same step.</TipBox>
           </section>
 
         </div>
