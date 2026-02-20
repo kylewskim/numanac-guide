@@ -80,7 +80,8 @@ export function Navbar() {
               </button>
 
               {guidesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-white rounded-lg border border-gray-100 shadow-md p-1 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+                <div className="w-52 bg-white rounded-lg border border-gray-100 shadow-md p-1">
                   {guides.map((guide) => {
                     const Icon = guide.icon;
                     return (
@@ -95,6 +96,7 @@ export function Navbar() {
                       </Link>
                     );
                   })}
+                </div>
                 </div>
               )}
             </div>
