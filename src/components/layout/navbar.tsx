@@ -29,39 +29,33 @@ const guides = [
   { href: "/guides/settings", label: "Settings", icon: Settings },
 ];
 
-const navLinks = [
-  { href: "/getting-started", label: "Getting Started" },
-  { href: "/videos", label: "Videos" },
-  { href: "/faq", label: "FAQ" },
-];
-
 export function Navbar() {
   const pathname = usePathname();
   const [guidesOpen, setGuidesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Leaf className="w-5 h-5 text-white" />
+          <Link href="/" className="flex items-center gap-2 font-semibold text-sm">
+            <div className="w-6 h-6 bg-primary rounded flex items-center justify-center">
+              <Leaf className="w-3.5 h-3.5 text-white" />
             </div>
             <span className="text-gray-900">Numanac</span>
-            <span className="text-primary">Guide</span>
+            <span className="text-gray-400 font-normal">Guide</span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-6">
             <Link
               href="/getting-started"
               className={cn(
-                "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                "text-sm transition-colors",
                 pathname.startsWith("/getting-started")
-                  ? "bg-primary/10 text-primary"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  ? "text-gray-900 font-medium"
+                  : "text-gray-500 hover:text-gray-900"
               )}
             >
               Getting Started
@@ -75,28 +69,28 @@ export function Navbar() {
             >
               <button
                 className={cn(
-                  "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                  "flex items-center gap-1 text-sm transition-colors",
                   pathname.startsWith("/guides")
-                    ? "bg-primary/10 text-primary"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    ? "text-gray-900 font-medium"
+                    : "text-gray-500 hover:text-gray-900"
                 )}
               >
-                Feature Guides
-                <ChevronDown className="w-4 h-4" />
+                Guides
+                <ChevronDown className="w-3.5 h-3.5" />
               </button>
 
               {guidesOpen && (
-                <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border p-2 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-white rounded-lg border border-gray-100 shadow-md p-1 z-50">
                   {guides.map((guide) => {
                     const Icon = guide.icon;
                     return (
                       <Link
                         key={guide.href}
                         href={guide.href}
-                        className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-primary/5 hover:text-primary transition-colors"
+                        className="flex items-center gap-2.5 px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
                         onClick={() => setGuidesOpen(false)}
                       >
-                        <Icon className="w-4 h-4" />
+                        <Icon className="w-3.5 h-3.5 text-gray-400" />
                         {guide.label}
                       </Link>
                     );
@@ -108,10 +102,10 @@ export function Navbar() {
             <Link
               href="/videos"
               className={cn(
-                "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                "text-sm transition-colors",
                 pathname === "/videos"
-                  ? "bg-primary/10 text-primary"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  ? "text-gray-900 font-medium"
+                  : "text-gray-500 hover:text-gray-900"
               )}
             >
               Videos
@@ -120,10 +114,10 @@ export function Navbar() {
             <Link
               href="/faq"
               className={cn(
-                "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                "text-sm transition-colors",
                 pathname === "/faq"
-                  ? "bg-primary/10 text-primary"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  ? "text-gray-900 font-medium"
+                  : "text-gray-500 hover:text-gray-900"
               )}
             >
               FAQ
@@ -132,30 +126,34 @@ export function Navbar() {
 
           {/* CTA + Mobile Menu */}
           <div className="flex items-center gap-3">
-            <Button asChild className="hidden md:flex">
+            <Button
+              asChild
+              size="sm"
+              className="hidden md:flex h-8 px-3 text-xs bg-gray-900 hover:bg-gray-700 text-white"
+            >
               <Link href="/ask">Ask Alma</Link>
             </Button>
 
             {/* Mobile Menu */}
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="md:hidden">
-                  <Menu className="w-5 h-5" />
+                <Button variant="outline" size="icon" className="md:hidden w-8 h-8">
+                  <Menu className="w-4 h-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
-                <div className="flex flex-col gap-2 mt-6">
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-2">
+              <SheetContent side="right" className="w-72">
+                <div className="flex flex-col gap-0.5 mt-6">
+                  <p className="text-xs font-medium text-gray-400 uppercase tracking-wider px-3 mb-2">
                     Navigation
                   </p>
                   <Link
                     href="/getting-started"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-primary/5 hover:text-primary"
+                    className="px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   >
                     Getting Started
                   </Link>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mt-4 mb-2">
+                  <p className="text-xs font-medium text-gray-400 uppercase tracking-wider px-3 mt-4 mb-2">
                     Feature Guides
                   </p>
                   {guides.map((guide) => {
@@ -165,32 +163,32 @@ export function Navbar() {
                         key={guide.href}
                         href={guide.href}
                         onClick={() => setMobileOpen(false)}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-primary/5 hover:text-primary"
+                        className="flex items-center gap-2.5 px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                       >
-                        <Icon className="w-4 h-4" />
+                        <Icon className="w-3.5 h-3.5 text-gray-400" />
                         {guide.label}
                       </Link>
                     );
                   })}
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mt-4 mb-2">
+                  <p className="text-xs font-medium text-gray-400 uppercase tracking-wider px-3 mt-4 mb-2">
                     More
                   </p>
                   <Link
                     href="/videos"
                     onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-primary/5 hover:text-primary"
+                    className="px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   >
                     Videos
                   </Link>
                   <Link
                     href="/faq"
                     onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-primary/5 hover:text-primary"
+                    className="px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   >
                     FAQ
                   </Link>
                   <div className="mt-4 px-3">
-                    <Button asChild className="w-full">
+                    <Button asChild className="w-full bg-gray-900 hover:bg-gray-700 text-white">
                       <Link href="/ask" onClick={() => setMobileOpen(false)}>
                         Ask Alma
                       </Link>

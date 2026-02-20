@@ -7,15 +7,15 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ id, title, subtitle, badge }: SectionHeaderProps) {
   return (
-    <div id={id} className="scroll-mt-24 mb-8">
+    <div id={id} className="scroll-mt-24 mb-6">
       {badge && (
-        <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
+        <p className="text-xs font-medium text-primary uppercase tracking-widest mb-2">
           {badge}
-        </span>
+        </p>
       )}
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+      <h2 className="text-xl font-bold text-gray-900 tracking-tight">{title}</h2>
       {subtitle && (
-        <p className="mt-2 text-gray-600 leading-relaxed">{subtitle}</p>
+        <p className="mt-1.5 text-sm text-gray-500 leading-relaxed">{subtitle}</p>
       )}
     </div>
   );

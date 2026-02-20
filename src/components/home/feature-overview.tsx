@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PhoneFrame } from "@/components/guide/phone-frame";
 import { Map, BookOpen, CheckSquare, Bot } from "lucide-react";
@@ -58,20 +57,20 @@ const features = [
 
 export function FeatureOverview() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900">What can Numanac do?</h2>
-          <p className="mt-3 text-gray-500">
+        <div className="mb-10">
+          <h2 className="text-2xl font-bold text-gray-900 tracking-tight">What can Numanac do?</h2>
+          <p className="mt-2 text-sm text-gray-500">
             Explore the key features of the app.
           </p>
         </div>
 
         <Tabs defaultValue="map" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 max-w-lg mx-auto mb-10">
+          <TabsList className="grid w-full grid-cols-4 max-w-sm mb-10 bg-gray-100">
             {features.map((f) => (
-              <TabsTrigger key={f.value} value={f.value} className="gap-1.5">
-                <f.icon className="w-4 h-4" />
+              <TabsTrigger key={f.value} value={f.value} className="gap-1.5 text-xs">
+                <f.icon className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">{f.label}</span>
               </TabsTrigger>
             ))}
@@ -81,15 +80,13 @@ export function FeatureOverview() {
             <TabsContent key={f.value} value={f.value}>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{f.title}</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">{f.description}</p>
-                  <ul className="space-y-3">
+                  <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-3">{f.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-6">{f.description}</p>
+                  <ul className="space-y-2.5">
                     {f.bullets.map((bullet, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <div className="w-2 h-2 rounded-full bg-primary" />
-                        </div>
-                        <span className="text-gray-700">{bullet}</span>
+                      <li key={i} className="flex items-start gap-2.5 text-sm text-gray-600">
+                        <span className="text-gray-300 mt-0.5 flex-shrink-0">—</span>
+                        {bullet}
                       </li>
                     ))}
                   </ul>

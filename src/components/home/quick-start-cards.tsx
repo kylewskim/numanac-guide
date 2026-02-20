@@ -8,53 +8,49 @@ const cards = [
     title: "Sign Up",
     description: "Create your Numanac account in under 2 minutes.",
     href: "/getting-started/signup",
-    color: "bg-blue-50 text-blue-600",
   },
   {
     icon: MapPin,
     title: "Set Up Your Farm",
     description: "Add your farm and draw field boundaries on the map.",
     href: "/getting-started/setup",
-    color: "bg-primary/10 text-primary",
   },
   {
     icon: Mic,
     title: "Log Your First Activity",
     description: "Use your voice to record farm activities instantly.",
     href: "/guides/logging",
-    color: "bg-purple-50 text-purple-600",
   },
   {
     icon: Users,
     title: "Invite Team Members",
     description: "Add your team and assign roles to collaborate.",
     href: "/guides/team",
-    color: "bg-amber-50 text-amber-600",
   },
 ];
 
 export function QuickStartCards() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900">Where do you want to start?</h2>
-          <p className="mt-3 text-gray-500">Choose a topic and follow the step-by-step guide.</p>
+        <div className="mb-10">
+          <h2 className="text-2xl font-bold text-gray-900 tracking-tight">Where do you want to start?</h2>
+          <p className="mt-2 text-sm text-gray-500">Choose a topic and follow the step-by-step guide.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {cards.map((card) => {
             const Icon = card.icon;
             return (
               <Link key={card.href} href={card.href}>
-                <Card className="h-full border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all group cursor-pointer">
-                  <CardContent className="p-6">
-                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${card.color}`}>
-                      <Icon className="w-6 h-6" />
+                <Card className="h-full border border-gray-100 hover:border-gray-300 transition-colors group cursor-pointer shadow-none">
+                  <CardContent className="p-5">
+                    <div className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center mb-4">
+                      <Icon className="w-4.5 h-4.5 text-gray-600" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-1">{card.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{card.description}</p>
-                    <div className="mt-4 flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                      Learn more <ArrowRight className="w-4 h-4" />
+                    <h3 className="font-medium text-gray-900 mb-1 text-sm">{card.title}</h3>
+                    <p className="text-xs text-gray-500 leading-relaxed">{card.description}</p>
+                    <div className="mt-4 flex items-center gap-1 text-gray-500 text-xs font-medium group-hover:text-gray-900 group-hover:gap-2 transition-all">
+                      Learn more <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </CardContent>
                 </Card>
