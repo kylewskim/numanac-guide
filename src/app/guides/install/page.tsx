@@ -124,7 +124,7 @@ export default function InstallGuidePage() {
                 tip="The Numanac icon will now appear on your Android home screen, ready to open with one tap."
               />
             </div>
-            <TipBox text='If you see a browser prompt at the bottom of the screen saying "Add Numanac to Home screen", you can tap that directly — it\'s a shortcut to the same step.' />
+            <TipBox text={`If you see a browser prompt at the bottom of the screen saying "Add Numanac to Home screen", you can tap that directly — it's a shortcut to the same step.`} />
           </section>
 
         </div>
