@@ -8,6 +8,7 @@ interface StepCardProps {
   description: string;
   image?: string;
   imageAlt?: string;
+  media?: React.ReactNode;
   tip?: string;
   warning?: string;
   examples?: string[];
@@ -19,6 +20,7 @@ export function StepCard({
   description,
   image,
   imageAlt,
+  media,
   tip,
   warning,
   examples,
@@ -58,8 +60,15 @@ export function StepCard({
           </div>
         )}
 
+        {/* Custom media */}
+        {media && (
+          <div className="mt-4 rounded-lg overflow-hidden border border-gray-100 bg-gray-50 max-w-xs">
+            {media}
+          </div>
+        )}
+
         {/* Image */}
-        {image && (
+        {!media && image && (
           <div className="mt-4 rounded-lg overflow-hidden border border-gray-100 bg-gray-50 max-w-xs">
             <Image
               src={image}
@@ -72,7 +81,7 @@ export function StepCard({
         )}
 
         {/* Placeholder when no image */}
-        {!image && (
+        {!media && !image && (
           <div className="mt-4 rounded-lg bg-gray-50 flex items-center justify-center h-36 max-w-xs">
             <p className="text-xs text-gray-300">Screenshot coming soon</p>
           </div>
