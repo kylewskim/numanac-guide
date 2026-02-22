@@ -47,24 +47,24 @@ export default function MapGuidePage() {
             {/* 3×2 → 2×3 → 1×6 callout grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
-                { num: "1", bg: "#1d4ed8", title: "Top bar", desc: "Shows your current farm and quick status info like weather and pending tasks." },
-                { num: "2", bg: "#16a34a", title: "Map area", desc: "Your main working area. Pan and zoom to inspect fields and boundaries." },
+                { num: "1", bg: "#0051FF", title: "Top bar", desc: "Shows your current farm and quick status info like weather and pending tasks." },
+                { num: "2", bg: "#00D458", title: "Map area", desc: "Your main working area. Pan and zoom to inspect fields and boundaries." },
                 { num: "3", bg: "#111827", title: "Layer button", desc: "Open layers and switch view mode between Field and Tract." },
                 { num: "4", bg: "#111827", title: "Mic button", desc: "Press and hold to quickly log a record with your voice." },
                 { num: "5", bg: "#111827", title: "+ button", desc: "Create a new Field or Tract directly from the map." },
-                { num: "6", bg: "#ea580c", title: "Bottom tabs", desc: "Move between Map, Logs, Alma, Alerts, and Settings." },
+                { num: "6", bg: "#FF5E00", title: "Bottom tabs", desc: "Move between Map, Logs, Alma, Alerts, and Settings." },
               ].map((item) => (
-                <div key={item.num} className="flex gap-3 p-3.5 rounded-xl bg-gray-50 border border-gray-100">
-                  <span
-                    className="w-6 h-6 rounded-lg text-white text-[11px] font-bold flex-shrink-0 flex items-center justify-center mt-0.5"
-                    style={{ backgroundColor: item.bg }}
-                  >
-                    {item.num}
-                  </span>
-                  <div>
+                <div key={item.num} className="p-3.5 rounded-xl bg-gray-50 border border-gray-100">
+                  <div className="flex items-center gap-2.5 mb-1">
+                    <span
+                      className="w-5 h-5 rounded-md text-white text-[10px] font-bold flex-shrink-0 flex items-center justify-center"
+                      style={{ backgroundColor: item.bg }}
+                    >
+                      {item.num}
+                    </span>
                     <p className="font-medium text-gray-900 text-sm">{item.title}</p>
-                    <p className="text-xs text-gray-500 leading-relaxed mt-0.5">{item.desc}</p>
                   </div>
+                  <p className="text-xs text-gray-500 leading-relaxed pl-[30px]">{item.desc}</p>
                 </div>
               ))}
             </div>
