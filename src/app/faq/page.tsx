@@ -133,17 +133,7 @@ const faqCategories = [
 
 export default function FAQPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">
-          Frequently Asked Questions
-        </h1>
-        <p className="text-lg text-gray-500 max-w-xl mx-auto">
-          Can&apos;t find what you&apos;re looking for? Ask Alma directly.
-        </p>
-      </div>
-
+    <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
       {/* FAQ Categories */}
       <div className="space-y-10">
         {faqCategories.map((category) => (
@@ -172,7 +162,7 @@ export default function FAQPage() {
       </div>
 
       {/* CTA */}
-      <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-white border border-primary/20 text-center">
+      <div className="mt-16 p-8 rounded-2xl bg-primary/5 border border-primary/20 text-center">
         <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
           <MessageCircle className="w-6 h-6 text-white" />
         </div>

@@ -3,8 +3,7 @@ import { GuideSidebar } from "@/components/layout/guide-sidebar";
 import { SectionHeader } from "@/components/guide/section-header";
 import { StepCard } from "@/components/guide/step-card";
 import { TipBox } from "@/components/guide/tip-box";
-import { WarningBox } from "@/components/guide/warning-box";
-import { CheckSquare, Zap, ClipboardList } from "lucide-react";
+import { Zap, ClipboardList } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Task Management Guide",
@@ -20,22 +19,7 @@ const sections = [
 
 export default function TasksGuidePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Page Header */}
-      <div className="max-w-3xl mb-10">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
-            <CheckSquare className="w-5 h-5 text-purple-600" />
-          </div>
-          <span className="text-sm font-medium text-gray-500">Feature Guide</span>
-        </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">Task Management</h1>
-        <p className="text-lg text-gray-600 leading-relaxed">
-          Plan upcoming work, set deadlines, and keep your team organized.
-          Alma automatically distinguishes between completed activities and future tasks.
-        </p>
-      </div>
-
+    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
       <div className="flex gap-12">
         <GuideSidebar sections={sections} />
 

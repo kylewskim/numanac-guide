@@ -10,7 +10,7 @@ const cards = [
     href: "/getting-started/signup",
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
-    cardBg: "bg-blue-50 hover:bg-blue-100/70",
+    cardBg: "bg-blue-50/70 hover:bg-blue-50",
     border: "border-blue-100 hover:border-blue-200",
     linkColor: "text-blue-600",
   },
@@ -21,7 +21,7 @@ const cards = [
     href: "/getting-started/setup",
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
-    cardBg: "bg-emerald-50 hover:bg-emerald-100/70",
+    cardBg: "bg-emerald-50/70 hover:bg-emerald-50",
     border: "border-emerald-100 hover:border-emerald-200",
     linkColor: "text-emerald-600",
   },
@@ -32,7 +32,7 @@ const cards = [
     href: "/guides/logging",
     iconBg: "bg-amber-100",
     iconColor: "text-amber-600",
-    cardBg: "bg-amber-50 hover:bg-amber-100/70",
+    cardBg: "bg-amber-50/70 hover:bg-amber-50",
     border: "border-amber-100 hover:border-amber-200",
     linkColor: "text-amber-600",
   },
@@ -43,7 +43,7 @@ const cards = [
     href: "/guides/team",
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
-    cardBg: "bg-violet-50 hover:bg-violet-100/70",
+    cardBg: "bg-violet-50/70 hover:bg-violet-50",
     border: "border-violet-100 hover:border-violet-200",
     linkColor: "text-violet-600",
   },
@@ -51,9 +51,9 @@ const cards = [
 
 export function QuickStartCards() {
   return (
-    <section className="py-16 bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10">
+    <section className="pt-8 pb-8 md:pt-10 md:pb-12 bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="mb-6 md:mb-7">
           <h2 className="text-2xl font-bold text-gray-900 tracking-tight">Where do you want to start?</h2>
           <p className="mt-2 text-sm text-gray-500">Choose a topic and follow the step-by-step guide.</p>
         </div>
@@ -63,13 +63,13 @@ export function QuickStartCards() {
             return (
               <Link key={card.href} href={card.href}>
                 <Card className={`h-full border transition-colors group cursor-pointer shadow-none ${card.cardBg} ${card.border}`}>
-                  <CardContent className="p-5">
-                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-4 ${card.iconBg}`}>
+                  <CardContent className="p-4">
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-3 ${card.iconBg}`}>
                       <Icon className={`w-4.5 h-4.5 ${card.iconColor}`} />
                     </div>
                     <h3 className="font-medium text-gray-900 mb-1 text-sm">{card.title}</h3>
                     <p className="text-xs text-gray-500 leading-relaxed">{card.description}</p>
-                    <div className={`mt-4 flex items-center gap-1 text-xs font-medium group-hover:gap-2 transition-all ${card.linkColor}`}>
+                    <div className={`mt-3 flex items-center gap-1 text-xs font-medium group-hover:gap-2 transition-all ${card.linkColor}`}>
                       Learn more <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </CardContent>

@@ -69,14 +69,7 @@ const guides = [
 
 export default function GuidesPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">Feature Guides</h1>
-        <p className="text-lg text-gray-500 max-w-xl mx-auto">
-          Click on any feature to see a detailed, step-by-step guide.
-        </p>
-      </div>
-
+    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {guides.map((guide) => {
           const Icon = guide.icon;

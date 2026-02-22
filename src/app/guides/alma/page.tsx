@@ -2,11 +2,8 @@ import type { Metadata } from "next";
 import { GuideSidebar } from "@/components/layout/guide-sidebar";
 import { SectionHeader } from "@/components/guide/section-header";
 import { StepCard } from "@/components/guide/step-card";
-import { TipBox } from "@/components/guide/tip-box";
 import { FeatureCard } from "@/components/guide/feature-card";
-import { Bot, MessageCircle, BarChart2, Mic, Globe, FileText, History, Target } from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { MessageCircle, BarChart2, Mic, Globe, FileText, Target } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Alma AI Assistant Guide",
@@ -22,26 +19,7 @@ const sections = [
 
 export default function AlmaGuidePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Hero Header — special design */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/10 to-emerald-50 border border-primary/20 p-8 md:p-12 mb-12">
-        <div className="relative z-10 max-w-2xl">
-          <div className="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center mb-6">
-            <Bot className="w-9 h-9 text-primary" />
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">Meet Alma</h1>
-          <p className="text-lg text-gray-600 leading-relaxed mb-6">
-            Alma is Numanac&apos;s AI farm assistant. Ask it anything about your farm —
-            from what happened last week to generating a full activity report.
-          </p>
-          <Button asChild>
-            <Link href="/ask">Try asking Alma a question →</Link>
-          </Button>
-        </div>
-        {/* Decorative */}
-        <div className="absolute right-8 top-8 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
-      </div>
-
+    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
       <div className="flex gap-12">
         <GuideSidebar sections={sections} />
 

@@ -7,7 +7,7 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ id, title, subtitle, badge }: SectionHeaderProps) {
   return (
-    <div id={id} className="scroll-mt-24 mb-6">
+    <div id={id} className="scroll-mt-60 mb-6">
       {badge && (
         <p className="text-xs font-medium text-primary uppercase tracking-widest mb-2">
           {badge}

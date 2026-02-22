@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,23 +39,17 @@ export default function VideosPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      {/* Hero Banner */}
-      <div className="text-center mb-14">
+    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
+      <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-4 py-2 mb-6">
           <Clock className="w-4 h-4 text-amber-600" />
           <span className="text-sm font-medium text-amber-700">Coming Soon</span>
         </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">Video Tutorials</h1>
-        <p className="text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
-          We&apos;re recording step-by-step video tutorials for every Numanac feature.
-          Enter your email to be notified when they&apos;re ready.
-        </p>
 
         {/* Email Subscription */}
-        <div className="mt-8 max-w-sm mx-auto">
+        <div className="max-w-sm">
           {subscribed ? (
-            <div className="flex items-center justify-center gap-2 p-4 bg-primary/5 border border-primary/20 rounded-xl">
+            <div className="flex items-center gap-2 p-4 bg-primary/5 border border-primary/20 rounded-xl">
               <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center">
                 <span className="text-white text-xs">✓</span>
               </div>

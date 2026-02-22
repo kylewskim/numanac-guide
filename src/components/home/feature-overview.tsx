@@ -58,7 +58,7 @@ const features = [
 export function FeatureOverview() {
   return (
     <section className="py-16 bg-gray-50 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10">
           <h2 className="text-2xl font-bold text-gray-900 tracking-tight">What can Numanac do?</h2>
           <p className="mt-2 text-sm text-gray-500">

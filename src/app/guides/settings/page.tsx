@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHeader } from "@/components/guide/section-header";
 import { FeatureCard } from "@/components/guide/feature-card";
-import { Settings, CreditCard, Bell, User, MapPin, Shield } from "lucide-react";
+import { CreditCard, Bell, User, MapPin, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Settings Guide",
@@ -10,20 +10,7 @@ export const metadata: Metadata = {
 
 export default function SettingsGuidePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-3xl mb-10">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-            <Settings className="w-5 h-5 text-gray-600" />
-          </div>
-          <span className="text-sm font-medium text-gray-500">Feature Guide</span>
-        </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">Settings</h1>
-        <p className="text-lg text-gray-600 leading-relaxed">
-          Manage your account profile, billing, farm details, and notification preferences.
-        </p>
-      </div>
-
+    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
       <div className="max-w-2xl space-y-12">
         <section>
           <SectionHeader

@@ -4,8 +4,6 @@ import Image from "next/image";
 import { GuideSidebar } from "@/components/layout/guide-sidebar";
 import { SectionHeader } from "@/components/guide/section-header";
 import { StepCard } from "@/components/guide/step-card";
-import { FeatureCard } from "@/components/guide/feature-card";
-import { Map, Layers, Palette } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Map & Boundaries Guide",
@@ -17,27 +15,11 @@ const sections = [
   { id: "field", label: "Drawing Field Boundaries" },
   { id: "tract", label: "Creating Tracts" },
   { id: "switch-view", label: "Switching Map View" },
-  { id: "layers", label: "Map Layers" },
 ];
 
 export default function MapGuidePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Page Header */}
-      <div className="max-w-3xl mb-10">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-            <Map className="w-5 h-5 text-blue-600" />
-          </div>
-          <span className="text-sm font-medium text-gray-500">Feature Guide</span>
-        </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">Map & Boundaries</h1>
-        <p className="text-lg text-gray-600 leading-relaxed">
-          Draw your farm boundaries on the map, organize fields into tracts, and use
-          satellite layers to monitor crop health.
-        </p>
-      </div>
-
+    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
       <div className="flex gap-12">
         <GuideSidebar sections={sections} />
 
@@ -49,53 +31,42 @@ export default function MapGuidePage() {
               title="Understanding the Map Screen"
               subtitle="When you open Numanac, this is the main map UI. The numbered points show what each area does."
             />
-            <div className="space-y-5">
-              <div className="relative rounded-2xl border border-gray-200 bg-gray-50 p-3 sm:p-4">
-                <Image
-                  src="/screenshots/map/map-overview.png"
-                  alt="Numanac map screen UI overview"
-                  width={1200}
-                  height={780}
-                  className="w-full h-auto rounded-xl border border-gray-200"
-                />
 
-                {[
-                  { num: "1", pos: "top-[8%] left-[50%] -translate-x-1/2" },
-                  { num: "2", pos: "top-[46%] left-[52%] -translate-x-1/2 -translate-y-1/2" },
-                  { num: "3", pos: "top-[50%] right-[6%] -translate-y-1/2" },
-                  { num: "4", pos: "bottom-[18%] left-[50%] -translate-x-1/2" },
-                  { num: "5", pos: "bottom-[18%] right-[8%]" },
-                  { num: "6", pos: "bottom-[6%] left-[50%] -translate-x-1/2" },
-                ].map((item) => (
-                  <div
-                    key={item.num}
-                    className={`absolute ${item.pos} w-7 h-7 rounded-full bg-gray-900 text-white text-xs font-semibold flex items-center justify-center shadow-sm`}
+            {/* Annotated image */}
+            <div className="mb-5">
+              <Image
+                src="/screenshots/map/map-screen-annotated.png"
+                alt="Numanac map screen with numbered UI callouts"
+                width={1800}
+                height={1200}
+                className="w-full h-auto"
+                style={{ borderRadius: 16, border: "1px solid rgba(0,0,0,0.10)" }}
+              />
+            </div>
+
+            {/* 3×2 → 2×3 → 1×6 callout grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                { num: "1", bg: "#1d4ed8", title: "Top bar", desc: "Shows your current farm and quick status info like weather and pending tasks." },
+                { num: "2", bg: "#16a34a", title: "Map area", desc: "Your main working area. Pan and zoom to inspect fields and boundaries." },
+                { num: "3", bg: "#111827", title: "Layer button", desc: "Open layers and switch view mode between Field and Tract." },
+                { num: "4", bg: "#111827", title: "Mic button", desc: "Press and hold to quickly log a record with your voice." },
+                { num: "5", bg: "#111827", title: "+ button", desc: "Create a new Field or Tract directly from the map." },
+                { num: "6", bg: "#ea580c", title: "Bottom tabs", desc: "Move between Map, Logs, Alma, Alerts, and Settings." },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-3 p-3.5 rounded-xl bg-gray-50 border border-gray-100">
+                  <span
+                    className="w-6 h-6 rounded-lg text-white text-[11px] font-bold flex-shrink-0 flex items-center justify-center mt-0.5"
+                    style={{ backgroundColor: item.bg }}
                   >
                     {item.num}
+                  </span>
+                  <div>
+                    <p className="font-medium text-gray-900 text-sm">{item.title}</p>
+                    <p className="text-xs text-gray-500 leading-relaxed mt-0.5">{item.desc}</p>
                   </div>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { num: "1", title: "Top bar", desc: "Shows your current farm and quick status info like weather." },
-                  { num: "2", title: "Map area", desc: "Your main working area. Pan and zoom to inspect fields." },
-                  { num: "3", title: "Layer button", desc: "Open layers and switch view mode (Field / Tract)." },
-                  { num: "4", title: "Mic button", desc: "Press and hold to quickly log a record with voice." },
-                  { num: "5", title: "+ button", desc: "Create a new Field or Tract." },
-                  { num: "6", title: "Bottom tabs", desc: "Move between Map, Records, Chat, and Settings." },
-                ].map((item) => (
-                  <div key={item.num} className="flex gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
-                    <span className="w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-semibold flex-shrink-0 flex items-center justify-center mt-0.5">
-                      {item.num}
-                    </span>
-                    <div>
-                      <p className="font-medium text-gray-900 text-sm">{item.title}</p>
-                      <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -114,6 +85,7 @@ export default function MapGuidePage() {
                 description="You'll find the + button in the bottom-right corner of the map screen."
                 image="/screenshots/map/map-clean.png"
                 imageAlt="Map screen showing the + button in the bottom-right corner"
+                splitMediaDesktop
               />
               <StepCard
                 step={2}
@@ -121,6 +93,7 @@ export default function MapGuidePage() {
                 description="In the menu that appears, tap Field to start field boundary creation."
                 image="/screenshots/map/map-add-menu.png"
                 imageAlt="Add menu showing Field and Tract options"
+                splitMediaDesktop
               />
               <StepCard
                 step={3}
@@ -138,6 +111,7 @@ export default function MapGuidePage() {
                     className="w-full h-auto pointer-events-none select-none"
                   />
                 }
+                splitMediaDesktop
               />
               <StepCard
                 step={4}
@@ -150,6 +124,7 @@ export default function MapGuidePage() {
                 description="Done. Your field now appears on the map. Tap it anytime to view details or log activities."
                 image="/screenshots/map/map-overview.png"
                 imageAlt="Map overview showing field boundaries"
+                splitMediaDesktop
               />
             </div>
 
@@ -185,6 +160,7 @@ export default function MapGuidePage() {
                 description="From the map, tap + and choose Tract."
                 image="/screenshots/map/map-add-menu.png"
                 imageAlt="Add menu showing Field and Tract options"
+                splitMediaDesktop
               />
               <StepCard
                 step={2}
@@ -224,6 +200,7 @@ export default function MapGuidePage() {
                 description="Open the map options panel from the layer icon."
                 image="/screenshots/map/map-layers-menu.png"
                 imageAlt="Layers menu on the map screen"
+                splitMediaDesktop
               />
               <StepCard
                 step={2}
@@ -238,35 +215,6 @@ export default function MapGuidePage() {
             </div>
           </section>
 
-          {/* Layers */}
-          <section>
-            <SectionHeader
-              id="layers"
-              title="Map Layers"
-              subtitle="Turn on data layers to see more information overlaid on your map."
-            />
-            <div className="mb-6 rounded-xl overflow-hidden border bg-gray-50 max-w-sm">
-              <Image
-                src="/screenshots/map/map-layers-menu.png"
-                alt="Map layers menu"
-                width={720}
-                height={1400}
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <FeatureCard
-                icon={Layers}
-                title="NDVI (Vegetation Index)"
-                description="Shows crop health using a green-to-red color scale. Green = healthy, red = stressed. Useful for spotting problem areas early."
-              />
-              <FeatureCard
-                icon={Palette}
-                title="Irrigation Sensors"
-                description="Displays the location of irrigation systems installed on your farm. Tap a sensor to see its current status."
-              />
-            </div>
-          </section>
         </div>
       </div>
     </div>

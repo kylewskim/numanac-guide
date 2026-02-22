@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { GuideSidebar } from "@/components/layout/guide-sidebar";
 import { SectionHeader } from "@/components/guide/section-header";
 import { StepCard } from "@/components/guide/step-card";
-import { TipBox } from "@/components/guide/tip-box";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BookOpen, Mic, PenLine, Globe } from "lucide-react";
+import { Mic, PenLine } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Activity Logging Guide",
@@ -20,22 +19,7 @@ const sections = [
 
 export default function LoggingGuidePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Page Header */}
-      <div className="max-w-3xl mb-10">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-            <BookOpen className="w-5 h-5 text-primary" />
-          </div>
-          <span className="text-sm font-medium text-gray-500">Feature Guide</span>
-        </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">Activity Logging</h1>
-        <p className="text-lg text-gray-600 leading-relaxed">
-          Record what happens on your farm every day — using your voice or keyboard.
-          Alma automatically organizes your words into structured records.
-        </p>
-      </div>
-
+    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
       <div className="flex gap-12">
         <GuideSidebar sections={sections} />
 

@@ -11,7 +11,7 @@ const suggestedQuestions = [
 export function AskAnythingSection() {
   return (
     <section className="py-16 bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-2xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         <h2 className="text-2xl font-bold text-gray-900 tracking-tight mb-3">
           Have a question?
         </h2>

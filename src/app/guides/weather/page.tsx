@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SectionHeader } from "@/components/guide/section-header";
 import { FeatureCard } from "@/components/guide/feature-card";
 import { TipBox } from "@/components/guide/tip-box";
-import { CloudSun, Thermometer, Wind, Droplets, Calendar } from "lucide-react";
+import { Thermometer, Wind, Droplets, Calendar } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Weather Guide",
@@ -11,21 +11,7 @@ export const metadata: Metadata = {
 
 export default function WeatherGuidePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-3xl mb-10">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center">
-            <CloudSun className="w-5 h-5 text-sky-600" />
-          </div>
-          <span className="text-sm font-medium text-gray-500">Feature Guide</span>
-        </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">Weather</h1>
-        <p className="text-lg text-gray-600 leading-relaxed">
-          Numanac shows real-time weather data for your farm location, including
-          hourly and daily forecasts so you can plan your work around the weather.
-        </p>
-      </div>
-
+    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
       <div className="max-w-2xl space-y-12">
         <section>
           <SectionHeader

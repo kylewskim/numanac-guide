@@ -1,18 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Leaf } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="border-t border-gray-100 bg-white mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 font-semibold text-sm mb-3">
-              <div className="w-6 h-6 bg-primary rounded flex items-center justify-center">
-                <Leaf className="w-3.5 h-3.5 text-white" />
-              </div>
-              <span className="text-gray-900">Numanac Guide</span>
+            <Link href="/" className="inline-flex items-center mb-3">
+              <Image
+                src="/brands/numanac-logo-full.svg"
+                alt="Numanac"
+                width={160}
+                height={28}
+                className="h-7 w-auto"
+              />
             </Link>
             <p className="text-xs text-gray-400 leading-relaxed">
               Step-by-step guides to help you manage your farm with Numanac.

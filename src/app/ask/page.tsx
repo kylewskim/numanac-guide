@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AskPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
       <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-sm bg-white">
         <Suspense fallback={<div className="h-[600px] flex items-center justify-center text-gray-400">Loading...</div>}>
           <ChatInterface />
