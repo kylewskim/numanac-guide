@@ -39,15 +39,30 @@ function ImageSlot({ filename }: { filename: string }) {
 
   if (isVideo) {
     return (
-      <video
-        src={getImagePath(filename)}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="mt-4 w-full h-auto rounded-xl"
-        style={{ border: "1px solid rgba(0,0,0,0.10)" }}
-      />
+      <div
+        className="mt-4 w-full rounded-xl flex items-center justify-center"
+        style={{
+          aspectRatio: "3 / 2",
+          backgroundColor: "#F3F3F3",
+          border: "1px solid rgba(0,0,0,0.10)",
+          padding: "0 0 8% 0",
+          overflow: "hidden",
+        }}
+      >
+        <video
+          src={getImagePath(filename)}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-auto block"
+          style={{
+            borderRadius: "0 0 16px 16px",
+            boxShadow: "0 0 0 4px #2F8F63",
+            clipPath: "inset(0 -4px -4px -4px round 0 0 16px 16px)",
+          }}
+        />
+      </div>
     );
   }
 
