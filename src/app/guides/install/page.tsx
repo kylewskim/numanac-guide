@@ -57,22 +57,26 @@ export default function InstallGuidePage() {
                 step={1}
                 title="Open Safari and go to site.numanac.com"
                 description="Type the address into the Safari address bar and open the Numanac website."
+                placeholder="numanac-install-ios-open.png"
               />
               <StepCard
                 step={2}
                 title='Tap the Share button at the bottom'
                 description='Look for the square icon with an arrow pointing upward (↑) at the bottom center of your screen. Tap it.'
+                placeholder="numanac-install-ios-share.png"
               />
               <StepCard
                 step={3}
                 title='Scroll down and tap "Add to Home Screen"'
                 description='A menu will appear. Scroll through the options and tap "Add to Home Screen".'
+                placeholder="numanac-install-ios-add.png"
               />
               <StepCard
                 step={4}
                 title="Name it and tap Add"
                 description='You can rename the shortcut if you like. Then tap "Add" in the top-right corner.'
                 tip='The Numanac icon will appear on your home screen. Tap it anytime to open the app instantly.'
+                placeholder="numanac-install-ios-confirm.png"
               />
             </div>
             <TipBox>If you don&apos;t see the Share button, scroll up on the page first — it appears at the bottom of the Safari browser.</TipBox>
@@ -90,22 +94,26 @@ export default function InstallGuidePage() {
                 step={1}
                 title="Open Chrome and go to site.numanac.com"
                 description="Type the address into the Chrome address bar and open the Numanac website."
+                placeholder="numanac-install-android-open.png"
               />
               <StepCard
                 step={2}
                 title="Tap the three-dot menu in the top right"
                 description='Tap the ⋮ icon in the upper-right corner of Chrome to open the menu.'
+                placeholder="numanac-install-android-menu.png"
               />
               <StepCard
                 step={3}
                 title='Tap "Add to Home screen"'
                 description='Find and tap "Add to Home screen" in the menu. On some Android versions this may appear as "Install app".'
+                placeholder="numanac-install-android-add.png"
               />
               <StepCard
                 step={4}
                 title="Confirm by tapping Add"
                 description='A dialog will appear. Tap "Add" to place the Numanac shortcut on your home screen.'
                 tip="The Numanac icon will now appear on your Android home screen, ready to open with one tap."
+                placeholder="numanac-install-android-confirm.png"
               />
             </div>
             <TipBox>If you see a browser prompt at the bottom of the screen saying &quot;Add Numanac to Home screen&quot;, you can tap that directly — it&apos;s a shortcut to the same step.</TipBox>

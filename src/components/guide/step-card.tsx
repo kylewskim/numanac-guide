@@ -20,32 +20,34 @@ function getImagePath(filename: string): string {
   if (filename.startsWith("numanac-alma-")) return `/screenshots/alma/${filename}`;
   if (filename.startsWith("numanac-settings-")) return `/screenshots/settings/${filename}`;
   if (filename.startsWith("numanac-onboarding-")) return `/screenshots/onboarding/${filename}`;
+  if (filename.startsWith("numanac-tasks-")) return `/screenshots/tasks/${filename}`;
+  if (filename.startsWith("numanac-team-")) return `/screenshots/team/${filename}`;
+  if (filename.startsWith("numanac-install-")) return `/screenshots/install/${filename}`;
   return `/screenshots/${filename}`;
 }
 
 function ImageSlot({ filename }: { filename: string }) {
-  const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return (
-      <div
-        className="mt-4 w-full rounded-xl bg-gray-50 border border-dashed border-gray-200 flex items-center justify-center"
-        style={{ aspectRatio: "3 / 2" }}
-      >
-        <span className="text-[11px] font-mono text-gray-400">{filename}</span>
-      </div>
-    );
-  }
+  const [loaded, setLoaded] = useState(false);
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={getImagePath(filename)}
-      alt=""
-      onError={() => setFailed(true)}
-      className="mt-4 w-full h-auto rounded-xl"
-      style={{ border: "1px solid rgba(0,0,0,0.10)" }}
-    />
+    <>
+      {!loaded && (
+        <div
+          className="mt-4 w-full rounded-xl bg-gray-50 border border-dashed border-gray-200 flex items-center justify-center"
+          style={{ aspectRatio: "3 / 2" }}
+        >
+          <span className="text-[11px] font-mono text-gray-400">{filename}</span>
+        </div>
+      )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={getImagePath(filename)}
+        alt=""
+        onLoad={() => setLoaded(true)}
+        className={`mt-4 w-full h-auto rounded-xl${loaded ? "" : " hidden"}`}
+        style={{ border: "1px solid rgba(0,0,0,0.10)" }}
+      />
+    </>
   );
 }
 

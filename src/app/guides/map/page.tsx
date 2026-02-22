@@ -101,6 +101,7 @@ export default function MapGuidePage() {
                 step={4}
                 title="Name your field"
                 description='Tap "Next", type a name for the field (e.g. "North Pasture", "Tomato Plot 2"), then tap "Continue".'
+                placeholder="numanac-map-name-field.png"
               />
               <StepCard
                 step={5}
@@ -146,22 +147,26 @@ export default function MapGuidePage() {
                 step={2}
                 title="Select fields for your tract"
                 description="When Select fields for your tract appears, choose the fields you want to include."
+                placeholder="numanac-map-tract-select.png"
               />
               <StepCard
                 step={3}
                 title="Enter Tract information"
                 description='Set the Tract name and, if needed, enter an ID.'
+                placeholder="numanac-map-tract-info.png"
               />
               <StepCard
                 step={4}
                 title="Pick a tract color"
                 description="Choose a color so this tract is easy to identify on the map."
+                placeholder="numanac-map-tract-color.png"
               />
               <StepCard
                 step={5}
                 title='Tap "Complete"'
                 description="Your tract is created and applied to the selected fields."
                 tip="Tracts help you filter records and tasks by area, especially on larger farms."
+                placeholder="numanac-map-tract-complete.png"
               />
             </div>
           </section>
@@ -184,11 +189,13 @@ export default function MapGuidePage() {
                 step={2}
                 title="Choose Field View or Tract View"
                 description="Tap the view mode you want."
+                placeholder="numanac-map-view-select.png"
               />
               <StepCard
                 step={3}
                 title="View transitions automatically"
                 description="The map switches to your selected view mode right away."
+                placeholder="numanac-map-view-result.png"
               />
             </div>
           </section>

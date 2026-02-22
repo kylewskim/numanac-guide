@@ -95,6 +95,7 @@ export default function AlmaGuidePage() {
                 title="Read Alma's response"
                 description="Alma will answer based on your farm's actual data — past records, tasks, and weather."
                 tip="The more records you log, the more useful Alma becomes. It learns from your history."
+                placeholder="numanac-alma-chat-response.png"
               />
             </div>
           </section>
@@ -118,17 +119,20 @@ export default function AlmaGuidePage() {
                 step={2}
                 title="Select a location"
                 description="Choose which farm, field, or tract you want Alma to focus on."
+                placeholder="numanac-alma-focus-location.png"
               />
               <StepCard
                 step={3}
                 title="Set a date range"
                 description="Optionally set a start and end date to limit Alma's context to that period."
+                placeholder="numanac-alma-focus-date.png"
               />
               <StepCard
                 step={4}
                 title='Tap "Apply"'
                 description="A focus badge will appear at the top of the chat. Alma will now only reference data from that scope."
                 tip="This is useful when you want to ask: 'What did we do in the north vineyard during harvest season?'"
+                placeholder="numanac-alma-focus-apply.png"
               />
             </div>
           </section>
@@ -144,11 +148,13 @@ export default function AlmaGuidePage() {
                 step={1}
                 title="View past conversations"
                 description='Tap the clock (🕐) icon in the top-right corner of the Chat screen to see all your previous conversations with Alma.'
+                placeholder="numanac-alma-history-list.png"
               />
               <StepCard
                 step={2}
                 title="Start a new conversation"
                 description='Tap the "+" button to start a fresh chat. This keeps your conversations organized by topic.'
+                placeholder="numanac-alma-history-new.png"
               />
             </div>
           </section>

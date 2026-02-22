@@ -54,6 +54,7 @@ export default function LoggingGuidePage() {
                     step={2}
                     title="Press and hold the mic button while speaking"
                     description="Hold the button and speak naturally, just like you'd tell someone what you did on the farm."
+                    placeholder="numanac-logging-voice-hold.png"
                     examples={[
                       "Applied herbicide to field 3 today",
                       "Fed 50 cattle in the north paddock",
@@ -64,17 +65,20 @@ export default function LoggingGuidePage() {
                     step={3}
                     title="Release the button"
                     description="When you let go, Alma processes your speech and turns it into a structured record. This takes just a few seconds."
+                    placeholder="numanac-logging-voice-release.png"
                   />
                   <StepCard
                     step={4}
                     title="Review and adjust"
                     description="Alma shows you what it recorded. Check the date, location, and any other details. Edit anything that needs correcting."
+                    placeholder="numanac-logging-voice-review.png"
                   />
                   <StepCard
                     step={5}
                     title='Tap "Save"'
                     description="That's it! Your activity is saved and linked to your farm records."
                     tip="Alma learns from context — if you're viewing a specific field, it will automatically link the record to that field."
+                    placeholder="numanac-logging-voice-save.png"
                   />
                 </div>
               </TabsContent>
@@ -91,11 +95,13 @@ export default function LoggingGuidePage() {
                     step={2}
                     title='Tap the "+" button'
                     description="Tap the + button in the top-right corner to create a new record manually."
+                    placeholder="numanac-logging-text-plus.png"
                   />
                   <StepCard
                     step={3}
                     title="Type your activity description"
                     description="Write what happened in your own words. Alma will still help organize and categorize the information."
+                    placeholder="numanac-logging-text-describe.png"
                     examples={[
                       "Sprayed fungicide on the east vineyard",
                       "Moved cattle to paddock 4",
@@ -106,11 +112,13 @@ export default function LoggingGuidePage() {
                     step={4}
                     title="Fill in additional details"
                     description="Set the date, location, assigned team member, and any other relevant information."
+                    placeholder="numanac-logging-text-details.png"
                   />
                   <StepCard
                     step={5}
                     title='Tap "Save"'
                     description="Your record is now saved to your farm history."
+                    placeholder="numanac-logging-text-save.png"
                   />
                 </div>
               </TabsContent>
@@ -135,16 +143,19 @@ export default function LoggingGuidePage() {
                 step={2}
                 title="Tap the record to open it"
                 description="Tap on the record to open the full details view."
+                placeholder="numanac-logging-edit-open.png"
               />
               <StepCard
                 step={3}
                 title="Edit any field"
                 description="Tap on any field you want to change — date, location, description, attached files, or assignee."
+                placeholder="numanac-logging-edit-field.png"
               />
               <StepCard
                 step={4}
                 title='Save your changes'
                 description='Tap "Save" to confirm your edits.'
+                placeholder="numanac-logging-edit-save.png"
               />
             </div>
 
@@ -181,22 +192,26 @@ export default function LoggingGuidePage() {
                 step={1}
                 title="Open the record"
                 description="Find and open any saved record."
+                placeholder="numanac-logging-translate-open.png"
               />
               <StepCard
                 step={2}
                 title='Tap the globe (🌐) icon'
                 description="The translate icon is in the record toolbar."
+                placeholder="numanac-logging-translate-globe.png"
               />
               <StepCard
                 step={3}
                 title="Select a language"
                 description="Choose the language you want to translate to (e.g. Spanish, Portuguese, English)."
+                placeholder="numanac-logging-translate-select.png"
               />
               <StepCard
                 step={4}
                 title='Tap "Translate" and save'
                 description="The translation is added to the record. Both the original and translated versions are saved."
                 tip="This is especially useful for farms with multilingual teams — a supervisor can log in English while workers read in Spanish."
+                placeholder="numanac-logging-translate-save.png"
               />
             </div>
           </section>

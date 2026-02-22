@@ -74,6 +74,7 @@ export default function TasksGuidePage() {
                 step={1}
                 title="Press and hold the mic button"
                 description="Speak in the future tense to describe a task that needs to be completed."
+                placeholder="numanac-tasks-create-mic.png"
                 examples={[
                   "Irrigate the north field tomorrow morning",
                   "Fix the fence on the south paddock by Friday",
@@ -84,16 +85,19 @@ export default function TasksGuidePage() {
                 step={2}
                 title="Alma classifies it as a Task automatically"
                 description='Because you used future-tense language, Alma recognizes this as a planned task and switches to the "Task" tab automatically.'
+                placeholder="numanac-tasks-create-classified.png"
               />
               <StepCard
                 step={3}
                 title="Review the task details"
                 description="Check the due date Alma inferred from your speech (e.g. 'tomorrow' → tomorrow's date). Update the location and any other fields if needed."
+                placeholder="numanac-tasks-create-review.png"
               />
               <StepCard
                 step={4}
                 title='Tap "Save"'
                 description="The task is now in your task list, ready to be tracked and completed."
+                placeholder="numanac-tasks-create-save.png"
               />
             </div>
           </section>
@@ -110,16 +114,19 @@ export default function TasksGuidePage() {
                 step={1}
                 title="Open the task"
                 description="Go to the Records tab, switch to Tasks view, and tap on a task to open it."
+                placeholder="numanac-tasks-track-open.png"
               />
               <StepCard
                 step={2}
                 title="Log progress"
                 description='Tap "Log Progress" to add an update — you can use voice or text to describe what has been done so far.'
+                placeholder="numanac-tasks-track-progress.png"
               />
               <StepCard
                 step={3}
                 title="Mark complete when done"
                 description='When the task is fully finished, tap "Mark Complete". The task moves to your completed records.'
+                placeholder="numanac-tasks-track-complete.png"
               />
             </div>
           </section>
@@ -136,22 +143,26 @@ export default function TasksGuidePage() {
                 step={1}
                 title="Open the task"
                 description="Create a new task or open an existing one."
+                placeholder="numanac-tasks-assign-open.png"
               />
               <StepCard
                 step={2}
                 title='Tap "Add Assignee"'
                 description="In the task detail screen, tap the Assignee field."
+                placeholder="numanac-tasks-assign-button.png"
               />
               <StepCard
                 step={3}
                 title="Select a team member"
                 description="Choose from the list of invited team members."
+                placeholder="numanac-tasks-assign-select.png"
               />
               <StepCard
                 step={4}
                 title="Save"
                 description="The assigned team member will receive a notification about the task."
                 tip="Only team members with the Recordkeeper role or higher can be assigned tasks."
+                placeholder="numanac-tasks-assign-save.png"
               />
             </div>
           </section>
