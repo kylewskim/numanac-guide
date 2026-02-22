@@ -57,12 +57,11 @@ export default function InstallGuidePage() {
                 step={1}
                 title="Open Safari and go to site.numanac.com"
                 description="Type the address into the Safari address bar and open the Numanac website."
-                placeholder="numanac-install-ios-open.png"
               />
               <StepCard
                 step={2}
-                title='Tap the Share button at the bottom'
-                description='Look for the square icon with an arrow pointing upward (↑) at the bottom center of your screen. Tap it.'
+                title="Tap the ··· menu, then tap Share"
+                description='At the bottom of the screen, tap the ··· (three dots) button first. In the menu that appears, tap the Share icon (square with an arrow pointing up ↑).'
                 placeholder="numanac-install-ios-share.png"
               />
               <StepCard
