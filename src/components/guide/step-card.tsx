@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { TipBox } from "./tip-box";
 import { WarningBox } from "./warning-box";
 
@@ -28,6 +28,13 @@ function getImagePath(filename: string): string {
 
 function ImageSlot({ filename }: { filename: string }) {
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+      setLoaded(true);
+    }
+  }, []);
 
   return (
     <>
@@ -41,6 +48,7 @@ function ImageSlot({ filename }: { filename: string }) {
       )}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
+        ref={imgRef}
         src={getImagePath(filename)}
         alt=""
         onLoad={() => setLoaded(true)}
