@@ -46,14 +46,20 @@ export default function LoggingGuidePage() {
                 <div className="space-y-0">
                   <StepCard
                     step={1}
-                    title="Find the green microphone button"
-                    description="The mic button is at the bottom center of every screen. It's the large green circle with a microphone icon."
+                    title="Tap the green microphone button"
+                    description="The mic button is at the bottom center of every screen. Tap it once — the recording screen will open."
                     placeholder="numanac-logging-mic-button.png"
                   />
                   <StepCard
                     step={2}
-                    title="Press and hold the mic button while speaking"
-                    description="Hold the button and speak naturally, just like you'd tell someone what you did on the farm."
+                    title="Set your logging language (optional)"
+                    description="In the recording screen, you can select the language you'll be speaking in. This helps Alma transcribe your voice more accurately. If you skip this, it will default to your app language."
+                    placeholder="numanac-logging-lang-select.png"
+                  />
+                  <StepCard
+                    step={3}
+                    title="Speak your activity"
+                    description="Speak naturally, just like you'd tell someone what you did on the farm."
                     placeholder="numanac-logging-voice-hold.png"
                     examples={[
                       "Applied herbicide to field 3 today",
@@ -62,23 +68,23 @@ export default function LoggingGuidePage() {
                     ]}
                   />
                   <StepCard
-                    step={3}
-                    title="Release the button"
-                    description="When you let go, Alma processes your speech and turns it into a structured record. This takes just a few seconds."
+                    step={4}
+                    title="Tap the green stop button to finish"
+                    description="When you're done speaking, tap the green stop button in the center of the screen. Alma will process your speech and turn it into a structured record."
                     placeholder="numanac-logging-voice-release.png"
                   />
                   <StepCard
-                    step={4}
+                    step={5}
                     title="Review and adjust"
                     description="Alma shows you what it recorded. Check the date, location, and any other details. Edit anything that needs correcting."
                     placeholder="numanac-logging-voice-review.png"
                   />
                   <StepCard
-                    step={5}
+                    step={6}
                     title='Tap "Save"'
                     description="That's it! Your activity is saved and linked to your farm records."
                     tip="Alma learns from context — if you're viewing a specific field, it will automatically link the record to that field."
-                    placeholder="numanac-logging-voice-save.png"
+                    // placeholder="numanac-logging-voice-save.png"
                   />
                 </div>
               </TabsContent>
@@ -118,7 +124,7 @@ export default function LoggingGuidePage() {
                     step={5}
                     title='Tap "Save"'
                     description="Your record is now saved to your farm history."
-                    placeholder="numanac-logging-text-save.png"
+                    // placeholder="numanac-logging-text-save.png"
                   />
                 </div>
               </TabsContent>
@@ -135,27 +141,21 @@ export default function LoggingGuidePage() {
             <div className="space-y-0">
               <StepCard
                 step={1}
-                title="Find the record"
-                description='Go to the Records tab and scroll to find the entry, or use the search bar.'
+                title="Find and open the record"
+                description="Go to the Records tab and scroll to find the entry, or use the search bar. Tap the record to open its full detail view."
                 placeholder="numanac-logging-records-list.png"
               />
               <StepCard
                 step={2}
-                title="Tap the record to open it"
-                description="Tap on the record to open the full details view."
-                placeholder="numanac-logging-edit-open.png"
-              />
-              <StepCard
-                step={3}
                 title="Edit any field"
                 description="Tap on any field you want to change — date, location, description, attached files, or assignee."
                 placeholder="numanac-logging-edit-field.png"
               />
               <StepCard
-                step={4}
+                step={3}
                 title='Save your changes'
                 description='Tap "Save" to confirm your edits.'
-                placeholder="numanac-logging-edit-save.png"
+                // placeholder="numanac-logging-edit-save.png"
               />
             </div>
 
@@ -183,15 +183,44 @@ export default function LoggingGuidePage() {
           <section>
             <SectionHeader
               id="translation"
-              title="Multilingual Translation"
-              subtitle="Translate any record into another language — useful when working with staff who speak different languages."
-              badge="Pro tip"
+              title="Translation & Language Settings"
+              subtitle="You can set the logging language before you record, or translate a completed record at any time after saving."
             />
+
+            {/* During Logging */}
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">During Logging</p>
+            <p className="text-sm text-gray-500 mb-5">When you open the recording screen, you can select the language you&apos;ll be speaking in. This is the <span className="font-medium text-gray-700">logging language</span> — it tells Alma which language to transcribe, so your words are captured accurately.</p>
             <div className="space-y-0">
               <StepCard
                 step={1}
-                title="Open the record"
-                description="Find and open any saved record."
+                title="Tap the mic button to open the recording screen"
+                description="The recording screen appears as soon as you tap the mic button."
+                placeholder="numanac-logging-lang-open.png"
+              />
+              <StepCard
+                step={2}
+                title="Tap the language selector"
+                description="Find the language option on the recording screen and tap it to choose the language you'll be speaking in."
+                placeholder="numanac-logging-lang-select.png"
+              />
+              <StepCard
+                step={3}
+                title="Proceed with your recording"
+                description="Continue speaking as usual. Alma will transcribe your voice using the selected language."
+                // placeholder="numanac-logging-lang-proceed.png"
+              />
+            </div>
+
+            <div className="my-8 border-t border-gray-100" />
+
+            {/* After Saving */}
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">After Saving</p>
+            <p className="text-sm text-gray-500 mb-5">You can also translate any saved record into a different language. This is separate from the logging language — it lets teammates who speak other languages read the same record.</p>
+            <div className="space-y-0">
+              <StepCard
+                step={1}
+                title="Open a saved record"
+                description="Find and open any record from the Records tab."
                 placeholder="numanac-logging-translate-open.png"
               />
               <StepCard
@@ -202,15 +231,15 @@ export default function LoggingGuidePage() {
               />
               <StepCard
                 step={3}
-                title="Select a language"
-                description="Choose the language you want to translate to (e.g. Spanish, Portuguese, English)."
+                title="Select a target language"
+                description="Choose the language you want to translate the record into (e.g. Spanish, Portuguese, English)."
                 placeholder="numanac-logging-translate-select.png"
               />
               <StepCard
                 step={4}
                 title='Tap "Translate" and save'
                 description="The translation is added to the record. Both the original and translated versions are saved."
-                tip="This is especially useful for farms with multilingual teams — a supervisor can log in English while workers read in Spanish."
+                tip="Useful for multilingual teams — a supervisor logs in English while workers can read the same record in Spanish."
                 placeholder="numanac-logging-translate-save.png"
               />
             </div>

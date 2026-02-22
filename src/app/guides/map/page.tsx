@@ -113,7 +113,7 @@ export default function MapGuidePage() {
 
             <div className="mt-5 rounded-xl border border-primary/20 bg-primary/5 p-4">
               <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Tips</p>
-              <ul className="space-y-1.5">
+              <ul className="space-y-1.5 list-disc list-inside marker:text-primary">
                 <li className="text-sm text-gray-700">You need at least 3 points to create a boundary.</li>
                 <li className="text-sm text-gray-700">Fields cannot intersect each other. Keep boundaries separated.</li>
                 <li className="text-sm text-gray-700">
