@@ -18,10 +18,10 @@ const sections = [
 export default function InstallGuidePage() {
   return (
     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
-      <div className="flex gap-12">
+      <div className="flex gap-12 justify-center lg:justify-start">
         <GuideSidebar sections={sections} />
 
-        <div className="flex-1 min-w-0 max-w-2xl space-y-16">
+        <div className="w-full min-w-0 max-w-2xl space-y-16">
 
           {/* Why */}
           <section>
