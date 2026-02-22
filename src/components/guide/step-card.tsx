@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { TipBox } from "./tip-box";
 import { WarningBox } from "./warning-box";
 
@@ -9,6 +12,41 @@ interface StepCardProps {
   tip?: string;
   warning?: string;
   examples?: string[];
+}
+
+function getImagePath(filename: string): string {
+  if (filename.startsWith("numanac-map-")) return `/screenshots/map/${filename}`;
+  if (filename.startsWith("numanac-logging-")) return `/screenshots/logging/${filename}`;
+  if (filename.startsWith("numanac-alma-")) return `/screenshots/alma/${filename}`;
+  if (filename.startsWith("numanac-settings-")) return `/screenshots/settings/${filename}`;
+  if (filename.startsWith("numanac-onboarding-")) return `/screenshots/onboarding/${filename}`;
+  return `/screenshots/${filename}`;
+}
+
+function ImageSlot({ filename }: { filename: string }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <div
+        className="mt-4 w-full rounded-xl bg-gray-50 border border-dashed border-gray-200 flex items-center justify-center"
+        style={{ aspectRatio: "3 / 2" }}
+      >
+        <span className="text-[11px] font-mono text-gray-400">{filename}</span>
+      </div>
+    );
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={getImagePath(filename)}
+      alt=""
+      onError={() => setFailed(true)}
+      className="mt-4 w-full h-auto rounded-xl"
+      style={{ border: "1px solid rgba(0,0,0,0.10)" }}
+    />
+  );
 }
 
 export function StepCard({
@@ -59,15 +97,8 @@ export function StepCard({
         {tip && <TipBox className="mt-4">{tip}</TipBox>}
         {warning && <WarningBox className="mt-4">{warning}</WarningBox>}
 
-        {/* Image placeholder — bottom, 3:2 ratio */}
-        {placeholder && (
-          <div
-            className="mt-4 w-full rounded-xl bg-gray-50 border border-dashed border-gray-200 flex flex-col items-center justify-center"
-            style={{ aspectRatio: "3 / 2" }}
-          >
-            <span className="text-[11px] font-mono text-gray-400">{placeholder}</span>
-          </div>
-        )}
+        {/* Image — shows real image if file exists, dashed placeholder if not */}
+        {placeholder && <ImageSlot filename={placeholder} />}
       </div>
     </div>
   );
