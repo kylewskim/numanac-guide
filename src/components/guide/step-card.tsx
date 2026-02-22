@@ -27,14 +27,29 @@ function getImagePath(filename: string): string {
 }
 
 function ImageSlot({ filename }: { filename: string }) {
+  const isVideo = filename.endsWith(".mp4");
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+    if (!isVideo && imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
       setLoaded(true);
     }
-  }, []);
+  }, [isVideo]);
+
+  if (isVideo) {
+    return (
+      <video
+        src={getImagePath(filename)}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="mt-4 w-full h-auto rounded-xl"
+        style={{ border: "1px solid rgba(0,0,0,0.10)" }}
+      />
+    );
+  }
 
   return (
     <>

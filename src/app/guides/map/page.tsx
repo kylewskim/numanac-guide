@@ -95,7 +95,7 @@ export default function MapGuidePage() {
                 step={3}
                 title="Tap points around your field"
                 description="Tap each corner of your field on the map to place markers. To finish, tap the first corner again or tap Confirm. After that, you can pick a color and fine-tune the shape by moving vertices for precise placement."
-                placeholder="numanac-map-draw-boundary.png"
+                placeholder="numanac-map-draw-boundary.mp4"
               />
               <StepCard
                 step={4}
