@@ -33,16 +33,6 @@ export function StepCard({
 
       {/* Content */}
       <div className="flex-1 pb-8">
-        {/* Image placeholder — top, 3:2 ratio */}
-        {placeholder && (
-          <div
-            className="mb-4 w-full rounded-xl bg-gray-50 border border-dashed border-gray-200 flex flex-col items-center justify-center"
-            style={{ aspectRatio: "3 / 2" }}
-          >
-            <span className="text-[11px] font-mono text-gray-400">{placeholder}</span>
-          </div>
-        )}
-
         <h3 className="text-base font-semibold text-gray-900 mb-1.5 leading-snug">
           {title}
         </h3>
@@ -68,6 +58,16 @@ export function StepCard({
         {/* Tip / Warning */}
         {tip && <TipBox className="mt-4">{tip}</TipBox>}
         {warning && <WarningBox className="mt-4">{warning}</WarningBox>}
+
+        {/* Image placeholder — bottom, 3:2 ratio */}
+        {placeholder && (
+          <div
+            className="mt-4 w-full rounded-xl bg-gray-50 border border-dashed border-gray-200 flex flex-col items-center justify-center"
+            style={{ aspectRatio: "3 / 2" }}
+          >
+            <span className="text-[11px] font-mono text-gray-400">{placeholder}</span>
+          </div>
+        )}
       </div>
     </div>
   );
