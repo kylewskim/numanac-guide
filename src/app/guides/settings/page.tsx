@@ -17,12 +17,11 @@ export default function SettingsGuidePage() {
             id="overview"
             title="What You Can Manage in Settings"
           />
-          <div className="mb-6 rounded-xl overflow-hidden border bg-gray-50 max-w-xs">
-            <img
-              src="/screenshots/settings/settings-main.png"
-              alt="Numanac Settings screen"
-              className="w-full h-auto"
-            />
+          <div
+            className="mb-6 w-full rounded-xl bg-gray-50 border border-dashed border-gray-200 flex flex-col items-center justify-center"
+            style={{ aspectRatio: "3 / 2" }}
+          >
+            <span className="text-[11px] font-mono text-gray-400">numanac-settings-main.png</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FeatureCard

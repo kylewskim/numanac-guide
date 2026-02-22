@@ -83,35 +83,19 @@ export default function MapGuidePage() {
                 step={1}
                 title='Tap the "+" button'
                 description="You'll find the + button in the bottom-right corner of the map screen."
-                image="/screenshots/map/map-clean.png"
-                imageAlt="Map screen showing the + button in the bottom-right corner"
-                splitMediaDesktop
+                placeholder="numanac-map-plus-button.png"
               />
               <StepCard
                 step={2}
                 title='Tap "Field"'
                 description="In the menu that appears, tap Field to start field boundary creation."
-                image="/screenshots/map/map-add-menu.png"
-                imageAlt="Add menu showing Field and Tract options"
-                splitMediaDesktop
+                placeholder="numanac-map-add-menu.png"
               />
               <StepCard
                 step={3}
                 title="Tap points around your field"
                 description="Tap each corner of your field on the map to place markers. To finish, tap the first corner again or tap Confirm. After that, you can pick a color and fine-tune the shape by moving vertices for precise placement."
-                media={
-                  <video
-                    src="/videos/map/field-boundary-drawing.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    controls={false}
-                    className="w-full h-auto pointer-events-none select-none"
-                  />
-                }
-                splitMediaDesktop
+                placeholder="numanac-map-draw-boundary.png"
               />
               <StepCard
                 step={4}
@@ -122,9 +106,7 @@ export default function MapGuidePage() {
                 step={5}
                 title="Done!"
                 description="Done. Your field now appears on the map. Tap it anytime to view details or log activities."
-                image="/screenshots/map/map-overview.png"
-                imageAlt="Map overview showing field boundaries"
-                splitMediaDesktop
+                placeholder="numanac-map-fields-complete.png"
               />
             </div>
 
@@ -158,9 +140,7 @@ export default function MapGuidePage() {
                 step={1}
                 title='Tap "+" then "Tract"'
                 description="From the map, tap + and choose Tract."
-                image="/screenshots/map/map-add-menu.png"
-                imageAlt="Add menu showing Field and Tract options"
-                splitMediaDesktop
+                placeholder="numanac-map-add-tract.png"
               />
               <StepCard
                 step={2}
@@ -198,9 +178,7 @@ export default function MapGuidePage() {
                 step={1}
                 title="Tap the Layers button on the map"
                 description="Open the map options panel from the layer icon."
-                image="/screenshots/map/map-layers-menu.png"
-                imageAlt="Layers menu on the map screen"
-                splitMediaDesktop
+                placeholder="numanac-map-layers-menu.png"
               />
               <StepCard
                 step={2}

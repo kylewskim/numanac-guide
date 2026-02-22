@@ -48,8 +48,7 @@ export default function LoggingGuidePage() {
                     step={1}
                     title="Find the green microphone button"
                     description="The mic button is at the bottom center of every screen. It's the large green circle with a microphone icon."
-                    image="/screenshots/logging/records-center.png"
-                    imageAlt="Records screen showing the mic button at bottom center"
+                    placeholder="numanac-logging-mic-button.png"
                   />
                   <StepCard
                     step={2}
@@ -86,8 +85,7 @@ export default function LoggingGuidePage() {
                     step={1}
                     title="Open the Records tab"
                     description='Tap the "Records" tab at the bottom of the screen.'
-                    image="/screenshots/logging/records-list.png"
-                    imageAlt="Records tab showing the list of farm activity records"
+                    placeholder="numanac-logging-records-tab.png"
                   />
                   <StepCard
                     step={2}
@@ -131,8 +129,7 @@ export default function LoggingGuidePage() {
                 step={1}
                 title="Find the record"
                 description='Go to the Records tab and scroll to find the entry, or use the search bar.'
-                image="/screenshots/logging/records-list.png"
-                imageAlt="Records list showing all farm activity logs"
+                placeholder="numanac-logging-records-list.png"
               />
               <StepCard
                 step={2}
