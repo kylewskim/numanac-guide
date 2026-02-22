@@ -107,7 +107,7 @@ export default function MapGuidePage() {
                 step={5}
                 title="Done!"
                 description="Done. Your field now appears on the map. Tap it anytime to view details or log activities."
-                placeholder="numanac-map-fields-complete.png"
+                // placeholder="numanac-map-fields-complete.png"
               />
             </div>
 
@@ -166,7 +166,7 @@ export default function MapGuidePage() {
                 title='Tap "Complete"'
                 description="Your tract is created and applied to the selected fields."
                 tip="Tracts help you filter records and tasks by area, especially on larger farms."
-                placeholder="numanac-map-tract-complete.png"
+                // placeholder="numanac-map-tract-complete.png"
               />
             </div>
           </section>
@@ -195,7 +195,7 @@ export default function MapGuidePage() {
                 step={3}
                 title="View transitions automatically"
                 description="The map switches to your selected view mode right away."
-                placeholder="numanac-map-view-result.png"
+                // placeholder="numanac-map-view-result.png"
               />
             </div>
           </section>
