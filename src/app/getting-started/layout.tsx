@@ -11,7 +11,7 @@ export default function GettingStartedLayout({
       <SectionStaticHero />
       {/* Horizontal step bar */}
       <div className="border-b border-gray-100 bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3 flex justify-center">
           <GettingStartedStepper />
         </div>
       </div>
