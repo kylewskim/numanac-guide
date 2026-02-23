@@ -256,7 +256,9 @@ function PlanCard({ plan }: { plan: Plan }) {
             {/* Contact Us (Enterprise only) — subtle to avoid visual dominance */}
             {plan.contactCta && (
               <a
-                href="mailto:support@numanac.com"
+                href="https://forms.monday.com/forms/c2779931b79809fb9b3ec0e552e3332a?r=use1"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center w-full rounded-md text-sm font-medium transition-colors"
                 style={{
                   height: "44px",
