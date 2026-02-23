@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Numanac Guide",
   },
   description:
-    "Step-by-step guides to help you manage your farm with Numanac. Map setup, activity logging, Alma AI, and more.",
+    "Step-by-step guides to help you manage your farm with Numanac. Map setup, record logging, Alma AI, and more.",
   keywords: ["Numanac", "farm management", "agriculture app", "user guide", "field boundaries"],
   openGraph: {
     siteName: "Numanac Guide",

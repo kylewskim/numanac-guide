@@ -21,11 +21,11 @@ const features = [
     value: "logging",
     label: "Logging",
     icon: BookOpen,
-    title: "Activity Logging",
+    title: "Record Logging",
     description: "Record everything that happens on your farm — just speak naturally.",
     bullets: [
       "Press the mic button and speak naturally",
-      "Alma transcribes and categorizes your activity automatically",
+      "Alma transcribes and categorizes your record automatically",
       "Attach photos and translate to other languages",
     ],
   },
@@ -49,7 +49,7 @@ const features = [
     description: "Ask Alma anything about your farm — it knows your data.",
     bullets: [
       "Chat with text or voice",
-      "Get summaries of past activities",
+      "Get summaries of past records",
       "Generate farm reports on demand",
     ],
   },

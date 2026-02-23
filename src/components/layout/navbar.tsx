@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 
 const guides = [
   { href: "/guides/map", label: "Map & Boundaries", icon: Map },
-  { href: "/guides/logging", label: "Activity Logging", icon: BookOpen },
+  { href: "/guides/logging", label: "Record Logging", icon: BookOpen },
   { href: "/guides/tasks", label: "Task Management", icon: CheckSquare },
   { href: "/guides/alma", label: "Alma AI Assistant", icon: Bot },
   { href: "/guides/weather", label: "Weather", icon: CloudSun },
@@ -114,7 +114,7 @@ export function Navbar() {
               )}
             </div>
 
-            <Link
+            {/* <Link
               href="/videos"
               className={cn(
                 "flex items-center h-full text-sm transition-colors",
@@ -124,7 +124,7 @@ export function Navbar() {
               )}
             >
               Videos
-            </Link>
+            </Link> */}
 
             <Link
               href="/faq"

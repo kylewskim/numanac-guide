@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { GuideSidebar } from "@/components/layout/guide-sidebar";
 import { SectionHeader } from "@/components/guide/section-header";
 import { StepCard } from "@/components/guide/step-card";
-import { FeatureCard } from "@/components/guide/feature-card";
 import { MessageCircle, BarChart2, Mic, Globe, FileText, Target } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -30,37 +29,23 @@ export default function AlmaGuidePage() {
               id="intro"
               title="What Can Alma Do?"
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <FeatureCard
-                icon={MessageCircle}
-                title="Answer Questions"
-                description="Ask anything about how Numanac works, or about your farm's activity history."
-              />
-              <FeatureCard
-                icon={BarChart2}
-                title="Analyze Records"
-                description="Summarize past activities by field, date range, or crop type."
-              />
-              <FeatureCard
-                icon={Mic}
-                title="Transcribe Voice Logs"
-                description="Automatically turns your spoken words into structured farm records."
-              />
-              <FeatureCard
-                icon={FileText}
-                title="Generate Reports"
-                description="Ask Alma to create a farm activity report for any time period."
-              />
-              <FeatureCard
-                icon={Globe}
-                title="Translate Records"
-                description="Translate activity logs into Spanish, English, Portuguese, and more."
-              />
-              <FeatureCard
-                icon={Target}
-                title="Focus Mode"
-                description="Restrict Alma's answers to a specific field or date range for targeted insights."
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                { icon: MessageCircle, label: "Answer Questions", desc: "Ask anything about how Numanac works, or about your farm's record history." },
+                { icon: BarChart2, label: "Analyze Records", desc: "Summarize past records by field, date range, or crop type." },
+                { icon: Mic, label: "Transcribe Voice Logs", desc: "Automatically turns your spoken words into structured farm records." },
+                { icon: FileText, label: "Generate Reports", desc: "Ask Alma to create a farm record report for any time period." },
+                { icon: Globe, label: "Translate Records", desc: "Translate records into Spanish, English, Portuguese, and more." },
+                { icon: Target, label: "Focus Mode", desc: "Restrict Alma's answers to a specific field or date range for targeted insights." },
+              ].map((item) => (
+                <div key={item.label} className="p-5 rounded-xl bg-white border border-gray-100 hover:border-gray-300 transition-colors">
+                  <div className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center mb-3">
+                    <item.icon className="w-4 h-4 text-gray-600" />
+                  </div>
+                  <p className="font-medium text-gray-900 text-sm mb-1.5">{item.label}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -92,10 +77,10 @@ export default function AlmaGuidePage() {
               />
               <StepCard
                 step={3}
-                title="Read Alma's response"
-                description="Alma will answer based on your farm's actual data — past records, tasks, and weather."
-                tip="The more records you log, the more useful Alma becomes. It learns from your history."
-                placeholder="numanac-alma-chat-response.png"
+                title="Get insights from your farm data"
+                description="Alma responds with insights drawn directly from your records, tasks, and weather data. Keep the conversation going — ask follow-up questions, request a summary, or dig into a specific field. The more you interact, the more useful Alma becomes."
+                tip="The more records you log, the richer Alma's answers get. It builds understanding from your history over time."
+                // placeholder="numanac-alma-chat-response.png"
               />
             </div>
           </section>
@@ -132,7 +117,7 @@ export default function AlmaGuidePage() {
                 title='Tap "Apply"'
                 description="A focus badge will appear at the top of the chat. Alma will now only reference data from that scope."
                 tip="This is useful when you want to ask: 'What did we do in the north vineyard during harvest season?'"
-                placeholder="numanac-alma-focus-apply.png"
+                // placeholder="numanac-alma-focus-apply.png"
               />
             </div>
           </section>

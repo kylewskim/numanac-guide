@@ -37,7 +37,7 @@ export function Footer() {
             <h3 className="font-medium text-gray-900 mb-3 text-xs uppercase tracking-wider">Feature Guides</h3>
             <ul className="space-y-2">
               <li><Link href="/guides/map" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">Map & Boundaries</Link></li>
-              <li><Link href="/guides/logging" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">Activity Logging</Link></li>
+              <li><Link href="/guides/logging" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">Record Logging</Link></li>
               <li><Link href="/guides/tasks" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">Task Management</Link></li>
               <li><Link href="/guides/alma" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">Alma AI</Link></li>
               <li><Link href="/guides/team" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">Team & Collaboration</Link></li>
@@ -48,7 +48,6 @@ export function Footer() {
           <div>
             <h3 className="font-medium text-gray-900 mb-3 text-xs uppercase tracking-wider">Help</h3>
             <ul className="space-y-2">
-              <li><Link href="/ask" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">Ask Alma</Link></li>
               <li><Link href="/faq" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">FAQ</Link></li>
               <li><Link href="/videos" className="text-xs text-gray-400 hover:text-gray-900 transition-colors">Video Tutorials</Link></li>
               <li>

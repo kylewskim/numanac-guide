@@ -60,7 +60,7 @@ export default function SetupPage() {
             <StepCard
               step={4}
               title="You're in!"
-              description="You'll land on the main map screen. From here, you can start drawing field boundaries, logging activities, and more."
+              description="You'll land on the main map screen. From here, you can start drawing field boundaries, logging records, and more."
               tip="You can always go back to Settings to update your farm name, location, or other details."
             />
           </div>
@@ -105,7 +105,7 @@ export default function SetupPage() {
         </div>
         <p className="text-sm text-gray-600 mb-4">
           Now that your farm is set up, learn how to draw field boundaries on
-          the map or start logging activities.
+          the map or start logging records.
         </p>
         <div className="flex flex-wrap gap-3">
           <Button asChild>
@@ -114,7 +114,7 @@ export default function SetupPage() {
             </Link>
           </Button>
           <Button asChild variant="outline">
-            <Link href="/guides/logging">Log an Activity</Link>
+            <Link href="/guides/logging">Log a Record</Link>
           </Button>
         </div>
       </div>

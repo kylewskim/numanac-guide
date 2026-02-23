@@ -18,7 +18,7 @@ const guides = [
   },
   {
     icon: BookOpen,
-    title: "Activity Logging",
+    title: "Record Logging",
     description: "Use voice or text to record everything that happens on your farm.",
     href: "/guides/logging",
     color: "bg-primary/10 text-primary",

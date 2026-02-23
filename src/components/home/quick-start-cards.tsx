@@ -27,8 +27,8 @@ const cards = [
   },
   {
     icon: Mic,
-    title: "Log Your First Activity",
-    description: "Use your voice to record farm activities instantly.",
+    title: "Log Your First Record",
+    description: "Use your voice to log farm records instantly.",
     href: "/guides/logging",
     iconBg: "bg-amber-100",
     iconColor: "text-amber-600",

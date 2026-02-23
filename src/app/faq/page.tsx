@@ -5,9 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -62,7 +60,7 @@ const faqCategories = [
     faqs: [
       {
         q: "The voice recording isn't recognizing what I say.",
-        a: "Make sure your phone's microphone permission is enabled for Numanac. Speak clearly and in a quiet environment. If the problem continues, try typing the activity instead.",
+        a: "Make sure your phone's microphone permission is enabled for Numanac. Speak clearly and in a quiet environment. If the problem continues, try typing the record instead.",
       },
       {
         q: "I saved a record with the wrong information. Can I edit it?",
@@ -163,23 +161,15 @@ export default function FAQPage() {
 
       {/* CTA */}
       <div className="mt-16 p-8 rounded-2xl bg-primary/5 border border-primary/20 text-center">
-        <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
-          <MessageCircle className="w-6 h-6 text-white" />
-        </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">
           Still have questions?
         </h3>
         <p className="text-gray-500 mb-6">
-          Alma can answer any question about how to use Numanac.
+          Our support team is happy to help.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button asChild>
-            <Link href="/ask">Ask Alma</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <a href="mailto:support@numanac.com">Email Support</a>
-          </Button>
-        </div>
+        <Button asChild>
+          <a href="mailto:support@numanac.com">Email Support</a>
+        </Button>
       </div>
     </div>
   );

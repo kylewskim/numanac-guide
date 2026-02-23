@@ -26,7 +26,7 @@ const plans = [
     features: [
       "Manage your own farm",
       "Unlimited field boundaries",
-      "Voice activity logging",
+      "Voice record logging",
       "Alma AI assistant",
       "Task management",
       "Team collaboration",

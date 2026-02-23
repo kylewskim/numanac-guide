@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 /* ─────────────────────────────────────────
    Colour palette (agtech, surface-only)
@@ -89,22 +89,6 @@ export function Hero() {
               >
                 <Link href="/getting-started">
                   Get Started <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="gap-2 font-medium"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.13)",
-                  color: "rgba(255,255,255,0.82)",
-                  border: "none",
-                  outline: "none",
-                }}
-              >
-                <Link href="/ask">
-                  <MessageCircle className="w-4 h-4" />
-                  Ask Alma
                 </Link>
               </Button>
             </div>

@@ -3,14 +3,16 @@ import { GuideSidebar } from "@/components/layout/guide-sidebar";
 import { SectionHeader } from "@/components/guide/section-header";
 import { StepCard } from "@/components/guide/step-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mic, PenLine } from "lucide-react";
+import { Mic, PenLine, Zap, ClipboardList } from "lucide-react";
+import { TipBox } from "@/components/guide/tip-box";
 
 export const metadata: Metadata = {
-  title: "Activity Logging Guide",
+  title: "Record Logging Guide",
   description: "Learn how to log farm activities using voice or text in Numanac.",
 };
 
 const sections = [
+  { id: "difference", label: "Records vs Tasks" },
   { id: "voice", label: "Voice Logging (Recommended)" },
   { id: "text", label: "Text Logging" },
   { id: "editing", label: "Editing a Record" },
@@ -24,11 +26,48 @@ export default function LoggingGuidePage() {
         <GuideSidebar sections={sections} />
 
         <div className="w-full min-w-0 max-w-2xl space-y-16">
+          {/* Records vs Tasks */}
+          <section>
+            <SectionHeader
+              id="difference"
+              title="Records vs. Tasks — What's the Difference?"
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div className="p-5 rounded-xl border-2 border-primary/30 bg-primary/5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Zap className="w-5 h-5 text-primary" />
+                  <span className="font-bold text-gray-900">Record</span>
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Something you <strong>already did</strong>. Logged in the past tense.
+                </p>
+                <p className="text-xs text-gray-400 mt-2 italic">
+                  Example: &quot;I sprayed herbicide on field 3 this morning.&quot;
+                </p>
+              </div>
+              <div className="p-5 rounded-xl border-2 border-purple-200 bg-purple-50 opacity-40">
+                <div className="flex items-center gap-2 mb-3">
+                  <ClipboardList className="w-5 h-5 text-purple-600" />
+                  <span className="font-bold text-gray-900">Task</span>
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Something you <strong>plan to do</strong>. Created in future tense.
+                </p>
+                <p className="text-xs text-gray-400 mt-2 italic">
+                  Example: &quot;Irrigate the north field tomorrow morning.&quot;
+                </p>
+              </div>
+            </div>
+            <TipBox>
+              Alma automatically detects whether you&apos;re describing something completed (Record) or something planned (Task) based on your language.
+            </TipBox>
+          </section>
+
           {/* Voice vs Text */}
           <section id="voice">
             <SectionHeader
               id="voice"
-              title="Logging an Activity"
+              title="Logging a Record"
               subtitle="Choose how you want to record — voice is the fastest and most natural option."
             />
 
@@ -58,7 +97,7 @@ export default function LoggingGuidePage() {
                   />
                   <StepCard
                     step={3}
-                    title="Speak your activity"
+                    title="Speak your record"
                     description="Speak naturally, just like you'd tell someone what you did on the farm."
                     placeholder="numanac-logging-voice-hold.png"
                     examples={[
@@ -77,12 +116,13 @@ export default function LoggingGuidePage() {
                     step={5}
                     title="Review and adjust"
                     description="Alma shows you what it recorded. Check the date, location, and any other details. Edit anything that needs correcting."
+                    tip="Alma automatically detects whether you described something completed (Record) or planned (Task) based on your words. If the tab looks wrong, you can switch it manually."
                     placeholder="numanac-logging-voice-review.png"
                   />
                   <StepCard
                     step={6}
                     title='Tap "Save"'
-                    description="That's it! Your activity is saved and linked to your farm records."
+                    description="That's it! Your record is saved and linked to your farm history."
                     tip="Alma learns from context — if you're viewing a specific field, it will automatically link the record to that field."
                     // placeholder="numanac-logging-voice-save.png"
                   />
@@ -93,19 +133,19 @@ export default function LoggingGuidePage() {
                 <div className="space-y-0">
                   <StepCard
                     step={1}
-                    title="Open the Records tab"
-                    description='Tap the "Records" tab at the bottom of the screen.'
-                    placeholder="numanac-logging-records-tab.png"
+                    title="Tap the green microphone button"
+                    description="The mic button is at the bottom center of every screen. Tap it once — the recording screen will open."
+                    placeholder="numanac-logging-mic-button.png"
                   />
                   <StepCard
                     step={2}
-                    title='Tap the "+" button'
-                    description="Tap the + button in the top-right corner to create a new record manually."
+                    title='Tap "Log Manually"'
+                    description='Tap the "Log Manually" button in the center of the recording screen to switch to text input mode.'
                     placeholder="numanac-logging-text-plus.png"
                   />
                   <StepCard
                     step={3}
-                    title="Type your activity description"
+                    title="Type your record/task description"
                     description="Write what happened in your own words. Alma will still help organize and categorize the information."
                     placeholder="numanac-logging-text-describe.png"
                     examples={[
@@ -118,7 +158,7 @@ export default function LoggingGuidePage() {
                     step={4}
                     title="Fill in additional details"
                     description="Set the date, location, assigned team member, and any other relevant information."
-                    placeholder="numanac-logging-text-details.png"
+                    // placeholder="numanac-logging-text-details.png"
                   />
                   <StepCard
                     step={5}
@@ -157,31 +197,39 @@ export default function LoggingGuidePage() {
                 description="Tap on any field you want to change — date, location, description, attached files, or assignee."
                 placeholder="numanac-logging-edit-field.png"
               />
+            </div>
+
+            {/* Field callout grid — aligned to image width */}
+            <div className="ml-12 md:ml-14 mb-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                { num: "1", label: "Record / Task tab", desc: "Switch between a record and a task." },
+                { num: "2", label: "Location", desc: "Which farm or field this record is from." },
+                { num: "3", label: "Date & Time", desc: "When this record took place." },
+                { num: "4", label: "Assignee", desc: "Team member responsible (for tasks)." },
+                { num: "5", label: "AI Summary", desc: "Alma's generated summary of this record." },
+                { num: "6", label: "Attachments", desc: "Photos or documents related to this record." },
+              ].map((item) => (
+                <div key={item.num} className="p-3.5 rounded-xl bg-gray-50 border border-gray-100">
+                  <div className="flex items-center gap-2.5 mb-1">
+                    <span
+                      className="w-5 h-5 rounded-md bg-gray-200 text-gray-600 text-[10px] font-bold flex-shrink-0 flex items-center justify-center"
+                    >
+                      {item.num}
+                    </span>
+                    <p className="font-medium text-gray-900 text-sm">{item.label}</p>
+                  </div>
+                  <p className="text-xs text-gray-500 leading-relaxed pl-[30px]">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-0">
               <StepCard
                 step={4}
                 title='Save your changes'
                 description='Tap "Save" to confirm your edits.'
                 // placeholder="numanac-logging-edit-save.png"
               />
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { icon: "①", label: "Record / Task tab", desc: "Switch between a completed activity (Record) and a planned task." },
-                { icon: "②", label: "Location", desc: "Which farm or field this activity happened at." },
-                { icon: "③", label: "Date & Time", desc: "When the activity took place." },
-                { icon: "④", label: "Assignee", desc: "Team member responsible (for tasks)." },
-                { icon: "⑤", label: "AI Summary", desc: "Alma's generated summary of the activity." },
-                { icon: "⑥", label: "Attachments", desc: "Photos or documents related to this record." },
-              ].map((item) => (
-                <div key={item.icon} className="flex gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100">
-                  <span className="text-lg font-bold text-primary flex-shrink-0">{item.icon}</span>
-                  <div>
-                    <p className="font-medium text-gray-900 text-sm">{item.label}</p>
-                    <p className="text-xs text-gray-500">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </section>
 
