@@ -116,25 +116,21 @@ const C = {
   cardBg: "rgb(247, 247, 247)",
 } as const;
 
-export function PlanCards() {
+function PlanCard({ plan }: { plan: Plan }) {
   const [billing, setBilling] = useState<"yearly" | "monthly">("yearly");
 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {plans.map((plan) => {
-        const pricing =
-          plan.yearly !== null
-            ? billing === "yearly"
-              ? plan.yearly
-              : plan.monthly!
-            : null;
+  const pricing =
+    plan.yearly !== null
+      ? billing === "yearly"
+        ? plan.yearly
+        : plan.monthly!
+      : null;
 
-        return (
-          <div
-            key={plan.name}
-            className="rounded-2xl flex flex-col gap-6"
-            style={{ backgroundColor: C.cardBg, padding: "32px 24px" }}
-          >
+  return (
+    <div
+      className="rounded-2xl flex flex-col gap-6"
+      style={{ backgroundColor: C.cardBg, padding: "32px 24px" }}
+    >
             {/* Plan name + badge */}
             <div className="flex items-end gap-1.5">
               <h3
@@ -310,9 +306,16 @@ export function PlanCards() {
                 </li>
               ))}
             </ul>
-          </div>
-        );
-      })}
+    </div>
+  );
+}
+
+export function PlanCards() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {plans.map((plan) => (
+        <PlanCard key={plan.name} plan={plan} />
+      ))}
     </div>
   );
 }
