@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function SetupPage() {
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-[1144px] mx-auto">
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-4">
