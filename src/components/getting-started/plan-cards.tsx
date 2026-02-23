@@ -128,7 +128,7 @@ function PlanCard({ plan }: { plan: Plan }) {
 
   return (
     <div
-      className="rounded-2xl flex flex-col gap-6"
+      className="rounded-2xl flex flex-col gap-6 h-full"
       style={{ backgroundColor: C.cardBg, padding: "32px 24px" }}
     >
             {/* Plan name + badge */}
@@ -312,11 +312,20 @@ function PlanCard({ plan }: { plan: Plan }) {
 
 export function PlanCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    // max-w matches 3 × 360px cards + 2 × 32px gaps = 1144px; mx-auto centers on wide viewports
+    <div
+      className="grid grid-cols-1 min-[810px]:grid-cols-2 min-[1200px]:grid-cols-3 gap-8 mx-auto w-full"
+      style={{ maxWidth: "1144px" }}
+    >
       {plans.map((plan) => (
         <div
           key={plan.name}
-          className={plan.name === "Enterprise" ? "sm:col-span-2" : undefined}
+          // tablet: Enterprise spans full row; desktop: back to single column (all 3 fit in one row)
+          className={
+            plan.name === "Enterprise"
+              ? "min-[810px]:col-span-2 min-[1200px]:col-span-1"
+              : undefined
+          }
         >
           <PlanCard plan={plan} />
         </div>
