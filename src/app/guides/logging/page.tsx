@@ -147,12 +147,18 @@ export default function LoggingGuidePage() {
               />
               <StepCard
                 step={2}
+                title="Tap the edit button"
+                description="In the record detail view, tap the edit button to enter edit mode."
+                placeholder="numanac-logging-edit-open.png"
+              />
+              <StepCard
+                step={3}
                 title="Edit any field"
                 description="Tap on any field you want to change — date, location, description, attached files, or assignee."
                 placeholder="numanac-logging-edit-field.png"
               />
               <StepCard
-                step={3}
+                step={4}
                 title='Save your changes'
                 description='Tap "Save" to confirm your edits.'
                 // placeholder="numanac-logging-edit-save.png"
