@@ -1,16 +1,12 @@
-"use client";
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PhoneFrame } from "@/components/guide/phone-frame";
 import { Map, BookOpen, CheckSquare, Bot } from "lucide-react";
 
 const features = [
   {
     value: "map",
-    label: "Map",
     icon: Map,
     title: "Map & Boundaries",
     description: "Draw your farm boundaries on the map and organize them into fields and tracts.",
+    color: "bg-blue-50 text-blue-600",
     bullets: [
       "Draw field boundaries by tapping points on the map",
       "Group multiple fields into tracts",
@@ -19,10 +15,10 @@ const features = [
   },
   {
     value: "logging",
-    label: "Logging",
     icon: BookOpen,
     title: "Record Logging",
     description: "Record everything that happens on your farm — just speak naturally.",
+    color: "bg-primary/10 text-primary",
     bullets: [
       "Press the mic button and speak naturally",
       "Alma transcribes and categorizes your record automatically",
@@ -31,10 +27,10 @@ const features = [
   },
   {
     value: "tasks",
-    label: "Tasks",
     icon: CheckSquare,
     title: "Task Management",
     description: "Plan upcoming work and assign tasks to your team members.",
+    color: "bg-purple-50 text-purple-600",
     bullets: [
       "Create tasks by speaking in future tense",
       "Set due dates and assign to team members",
@@ -43,10 +39,10 @@ const features = [
   },
   {
     value: "alma",
-    label: "Alma AI",
     icon: Bot,
     title: "Alma AI Assistant",
     description: "Ask Alma anything about your farm — it knows your data.",
+    color: "bg-emerald-50 text-emerald-600",
     bullets: [
       "Chat with text or voice",
       "Get summaries of past records",
@@ -66,38 +62,28 @@ export function FeatureOverview() {
           </p>
         </div>
 
-        <Tabs defaultValue="map" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 max-w-sm mb-10 bg-gray-100">
-            {features.map((f) => (
-              <TabsTrigger key={f.value} value={f.value} className="gap-1.5 text-xs">
-                <f.icon className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">{f.label}</span>
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          {features.map((f) => (
-            <TabsContent key={f.value} value={f.value}>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-3">{f.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-6">{f.description}</p>
-                  <ul className="space-y-2.5">
-                    {f.bullets.map((bullet, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-sm text-gray-600">
-                        <span className="text-gray-300 mt-0.5 flex-shrink-0">—</span>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {features.map((f) => {
+            const Icon = f.icon;
+            return (
+              <div key={f.value} className="p-6 rounded-2xl bg-white border border-gray-100">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${f.color}`}>
+                  <Icon className="w-5 h-5" />
                 </div>
-                <div className="flex justify-center">
-                  <PhoneFrame />
-                </div>
+                <h3 className="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">{f.description}</p>
+                <ul className="space-y-2">
+                  {f.bullets.map((bullet, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                      <span className="text-gray-300 mt-0.5 flex-shrink-0">—</span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </TabsContent>
-          ))}
-        </Tabs>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
