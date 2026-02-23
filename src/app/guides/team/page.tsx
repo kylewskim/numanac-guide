@@ -70,32 +70,32 @@ export default function TeamGuidePage() {
             <div className="space-y-0">
               <StepCard
                 step={1}
-                title="Go to the Settings tab"
-                description='Tap "Settings" in the bottom navigation bar.'
+                title="Go to Settings and tap your account card"
+                description='Tap "Settings" in the bottom navigation bar, then tap your plan or account card at the top of the screen.'
                 placeholder="numanac-team-seats-settings.png"
               />
               <StepCard
                 step={2}
-                title="Tap your account card"
-                description="Find and tap your plan or account card at the top of the Settings screen."
-                placeholder="numanac-team-seats-account.png"
+                title='Tap "Manage Members"'
+                description="This opens the member management screen where you can see your current team and seat usage."
+                placeholder="numanac-team-seats-manage.png"
               />
               <StepCard
                 step={3}
-                title='Tap "Update Seats"'
-                description="This opens the seat management screen where you can see how many seats you currently have by role."
-                placeholder="numanac-team-seats-update.png"
+                title='Review your seat summary and tap "Update Seats"'
+                description='Check how many seats you have by role (Manager, Recordkeeper, Viewer, etc.) and how many are already filled. If you need more, tap "Update Seats" to open the seat management screen.'
+                placeholder="numanac-team-seats-summary.png"
               />
               <StepCard
                 step={4}
                 title="Select how many seats to add"
-                description="Choose the number of seats for each role type (Manager, Recordkeeper, Viewer, etc.)."
+                description="Choose the number of seats for each role type."
                 placeholder="numanac-team-seats-select.png"
               />
               <StepCard
                 step={5}
                 title='Tap "Confirm Seat Update"'
-                description="Confirm the change. Seats are billed per month. New seats are available immediately."
+                description="Confirm the change. You'll be taken to the payment screen to complete the purchase. Seats are billed per month and become available immediately after payment."
                 placeholder="numanac-team-seats-confirm.png"
               />
             </div>
@@ -111,32 +111,26 @@ export default function TeamGuidePage() {
             <div className="space-y-0">
               <StepCard
                 step={1}
-                title="Go to Settings → your plan card"
-                description='In Settings, tap your plan card and look for the "Invite" button.'
-                placeholder="numanac-team-invite-settings.png"
+                title="Go to Settings → account card → Manage Members"
+                description='Tap "Settings" in the bottom navigation bar, tap your account card, then tap "Manage Members" — same as above.'
+                placeholder="numanac-team-invite-manage.png"
               />
               <StepCard
                 step={2}
-                title="Enter the team member's email address"
-                description="Type in the email address of the person you want to invite."
-                placeholder="numanac-team-invite-email.png"
+                title='Tap "Invite"'
+                description="Tap the Invite button to open the invitation form. If all seats for a role are full, you'll need to remove an existing member or purchase additional seats first."
+                placeholder="numanac-team-invite-button.png"
               />
               <StepCard
                 step={3}
-                title="Select their role"
-                description="Choose the role from the list: Manager, Recordkeeper, Viewer, or Client."
-                placeholder="numanac-team-invite-role.png"
+                title="Enter email, role, and farm access"
+                description="Type in the team member's email address, choose their role (Manager, Recordkeeper, Viewer, or Client), and select which farm(s) they should have access to."
+                placeholder="numanac-team-invite-email.png"
               />
               <StepCard
                 step={4}
-                title="Choose which farms they can access"
-                description="Select which farm(s) the team member should have access to. You can grant access to one or multiple farms."
-                placeholder="numanac-team-invite-farms.png"
-              />
-              <StepCard
-                step={5}
                 title='Tap "Send Invitation"'
-                description="The team member will receive an email invitation. They need to accept it and create (or log into) their Numanac account."
+                description="The team member will receive an email invitation to join. They need to accept it and create (or log into) their Numanac account."
                 tip="If the invitation email doesn't arrive, ask the team member to check their spam or junk folder."
                 placeholder="numanac-team-invite-send.png"
               />
