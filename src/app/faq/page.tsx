@@ -22,7 +22,7 @@ const faqCategories = [
       },
       {
         q: "What plans does Numanac offer?",
-        a: "Numanac has two plans: Farm Manager (for people managing their own farm) and Consultant (for agricultural consultants managing multiple client farms).",
+        a: "Numanac has two plans: Farmer (for people managing their own farm) and Consultant (for agricultural consultants managing multiple client farms).",
       },
       {
         q: "How long is the free trial?",

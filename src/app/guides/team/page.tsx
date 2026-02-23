@@ -17,7 +17,7 @@ const sections = [
 const roles = [
   { role: "Owner", can: "All features, billing, and account management" },
   { role: "Manager", can: "Create and edit farms, manage team members" },
-  { role: "Recordkeeper", can: "Create records and tasks, view all data" },
+  { role: "Recordkeeper", can: "Create records and tasks, view all permissioned data" },
   { role: "Viewer", can: "View records and data only (no editing)" },
   { role: "Client", can: "Limited access to their own farm data only" },
 ];

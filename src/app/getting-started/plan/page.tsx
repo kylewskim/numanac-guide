@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 
 const plans = [
   {
-    name: "Farm Manager",
-    target: "For farmers managing their own farm",
-    price: "Standard plan",
+    name: "Farmer",
+    target: "For farmers managing their own operation",
+    price: "Farmer plan",
     color: "border-primary",
     headerColor: "bg-primary text-white",
     features: [
@@ -35,24 +35,46 @@ const plans = [
   },
   {
     name: "Consultant",
-    target: "For consultants managing multiple clients",
+    target: "For consultants managing multiple client farms",
     price: "Consultant plan",
     color: "border-gray-200",
     headerColor: "bg-gray-800 text-white",
     features: [
       "Manage up to 30 client farms",
       "Separate workspace per client",
-      "All Farm Manager features",
+      "All Farmer plan features",
       "Client portal access",
       "Multi-farm reporting",
     ],
   },
 ];
 
+const addOns = [
+  {
+    plan: "Farmer",
+    color: "bg-primary/5 border-primary/20",
+    labelColor: "text-primary",
+    items: [
+      { name: "Manager Add-on", monthly: "$20/month", annual: "$204/year" },
+      { name: "Farmer Recordkeeper Seats", monthly: "$10/month", annual: "$102/year" },
+    ],
+  },
+  {
+    plan: "Consultant",
+    color: "bg-gray-50 border-gray-200",
+    labelColor: "text-gray-700",
+    items: [
+      { name: "Manager Add-on", monthly: "$80/month", annual: "$816/year" },
+      { name: "Consultant Recordkeeper Seats", monthly: "$20/month", annual: "$204/year" },
+      { name: "Client Add-on", monthly: "$5/month", annual: "$51/year" },
+    ],
+  },
+];
+
 const faqs = [
   {
-    q: "What is the difference between Farm Manager and Consultant?",
-    a: "Farm Manager is for people who manage their own farm directly. Consultant is for agricultural consultants or agents who manage farms for multiple clients — it gives you a separate, secure workspace for each client.",
+    q: "What is the difference between Farmer and Consultant?",
+    a: "Farmer is for people who manage their own farm directly. Consultant is for agricultural consultants or agents who manage farms for multiple clients — it gives you a separate, secure workspace for each client.",
   },
   {
     q: "Is there a free trial?",
@@ -109,6 +131,34 @@ export default function PlanPage() {
             </CardContent>
           </Card>
         ))}
+      </div>
+
+      {/* Add-on Seats */}
+      <div className="mb-10">
+        <h2 className="text-xl font-bold text-gray-900 mb-2">Add-on Seats</h2>
+        <p className="text-sm text-gray-500 mb-5">
+          Both plans let you purchase additional seats for your team. Pricing is per seat, per month.
+        </p>
+        <div className="space-y-4">
+          {addOns.map((group) => (
+            <div key={group.plan} className={`rounded-xl border p-5 ${group.color}`}>
+              <p className={`text-xs font-semibold uppercase tracking-wider mb-3 ${group.labelColor}`}>
+                {group.plan} Plan Add-ons
+              </p>
+              <div className="space-y-2">
+                {group.items.map((item) => (
+                  <div key={item.name} className="flex items-center justify-between text-sm">
+                    <span className="text-gray-700">{item.name}</span>
+                    <span className="text-gray-500">
+                      {item.monthly}
+                      <span className="text-gray-400 text-xs ml-2">({item.annual})</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* FAQ */}

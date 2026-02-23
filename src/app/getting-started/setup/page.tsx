@@ -34,11 +34,11 @@ export default function SetupPage() {
       {/* Tabs by plan */}
       <Tabs defaultValue="farm-manager" className="mb-10">
         <TabsList className="mb-6">
-          <TabsTrigger value="farm-manager">Farm Manager</TabsTrigger>
+          <TabsTrigger value="farm-manager">Farmer</TabsTrigger>
           <TabsTrigger value="consultant">Consultant</TabsTrigger>
         </TabsList>
 
-        {/* Farm Manager */}
+        {/* Farmer */}
         <TabsContent value="farm-manager">
           <div className="space-y-0">
             <StepCard
