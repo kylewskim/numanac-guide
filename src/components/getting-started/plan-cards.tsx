@@ -312,9 +312,14 @@ function PlanCard({ plan }: { plan: Plan }) {
 
 export function PlanCards() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
       {plans.map((plan) => (
-        <PlanCard key={plan.name} plan={plan} />
+        <div
+          key={plan.name}
+          className={plan.name === "Enterprise" ? "sm:col-span-2" : undefined}
+        >
+          <PlanCard plan={plan} />
+        </div>
       ))}
     </div>
   );

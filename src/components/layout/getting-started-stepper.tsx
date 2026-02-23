@@ -16,46 +16,50 @@ export function GettingStartedStepper() {
   const currentStep = steps.findIndex((s) => s.href === pathname) + 1;
 
   return (
-    <aside className="hidden lg:block w-56 flex-shrink-0">
-      <div className="sticky top-24">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-          Progress
-        </p>
-        <nav className="space-y-2">
-          {steps.map((step) => {
-            const isCompleted = step.step < currentStep;
-            const isCurrent = step.href === pathname;
-            return (
-              <Link
-                key={step.href}
-                href={step.href}
+    <nav className="flex items-center">
+      {steps.map((step, i) => {
+        const isCompleted = step.step < currentStep;
+        const isCurrent = step.href === pathname;
+        return (
+          <div key={step.href} className="flex items-center">
+            <Link
+              href={step.href}
+              className={cn(
+                "flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-colors",
+                isCurrent
+                  ? "text-primary font-medium"
+                  : isCompleted
+                  ? "text-gray-500 hover:text-gray-700"
+                  : "text-gray-400 hover:text-gray-500"
+              )}
+            >
+              <div
                 className={cn(
-                  "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors",
+                  "w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0",
                   isCurrent
-                    ? "bg-primary/10 text-primary font-medium"
+                    ? "bg-primary text-white"
                     : isCompleted
-                    ? "text-gray-500 hover:bg-gray-50"
-                    : "text-gray-400 hover:bg-gray-50"
+                    ? "bg-primary text-white"
+                    : "bg-gray-200 text-gray-500"
                 )}
               >
-                <div
-                  className={cn(
-                    "w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0",
-                    isCurrent
-                      ? "bg-primary text-white"
-                      : isCompleted
-                      ? "bg-primary text-white"
-                      : "bg-gray-200 text-gray-500"
-                  )}
-                >
-                  {isCompleted ? <Check className="w-4 h-4" /> : step.step}
-                </div>
-                {step.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
-    </aside>
+                {isCompleted ? <Check className="w-3.5 h-3.5" /> : step.step}
+              </div>
+              <span className="hidden sm:inline">{step.label}</span>
+            </Link>
+
+            {/* Connector between steps */}
+            {i < steps.length - 1 && (
+              <div
+                className={cn(
+                  "w-8 h-px mx-1 flex-shrink-0",
+                  step.step < currentStep ? "bg-primary/40" : "bg-gray-200"
+                )}
+              />
+            )}
+          </div>
+        );
+      })}
+    </nav>
   );
 }

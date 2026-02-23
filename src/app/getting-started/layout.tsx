@@ -9,11 +9,15 @@ export default function GettingStartedLayout({
   return (
     <>
       <SectionStaticHero />
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
-        <div className="flex gap-12">
+      {/* Horizontal step bar */}
+      <div className="border-b border-gray-100 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
           <GettingStartedStepper />
-          <div className="flex-1 min-w-0">{children}</div>
         </div>
+      </div>
+      {/* Full-width content */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
+        {children}
       </div>
     </>
   );
