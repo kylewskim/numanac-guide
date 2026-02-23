@@ -55,8 +55,8 @@ const plans: Plan[] = [
     name: "Consultant",
     badge: "+ 30 clients",
     yearly: {
-      price: "$150",
-      annual: null,
+      price: "$127.5",
+      annual: "$1,530/year",
       addOns: [
         { name: "Add Manager", price: "$20", unit: "/person" },
         { name: "Add Recordkeeper", price: "$10", unit: "/person" },
