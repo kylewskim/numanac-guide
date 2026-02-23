@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
 
 type AddOn = { name: string; price: string; unit: string };
 
@@ -102,11 +101,26 @@ const plans: Plan[] = [
   },
 ];
 
+// Exact color values from numanac.ai/pricing
+const C = {
+  text: "rgb(28, 28, 28)",
+  textFeature: "rgb(14, 14, 14)",
+  addon: "rgb(57, 57, 57)",
+  muted: "rgb(114, 114, 114)",
+  faint: "rgb(143, 143, 143)",
+  check: "rgb(56, 162, 113)",
+  badgeBg: "rgb(236, 253, 245)",
+  badgeText: "rgb(0, 153, 102)",
+  toggleBg: "rgba(118, 118, 128, 0.12)",
+  divider: "rgba(0, 0, 0, 0.15)",
+  cardBg: "rgb(247, 247, 247)",
+} as const;
+
 export function PlanCards() {
   const [billing, setBilling] = useState<"yearly" | "monthly">("yearly");
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {plans.map((plan) => {
         const pricing =
           plan.yearly !== null
@@ -118,103 +132,184 @@ export function PlanCards() {
         return (
           <div
             key={plan.name}
-            className="rounded-2xl border border-gray-200 bg-white overflow-hidden flex flex-col"
+            className="rounded-2xl flex flex-col gap-6"
+            style={{ backgroundColor: C.cardBg, padding: "32px 24px" }}
           >
-            <div className="p-6 flex-1 flex flex-col">
-              {/* Plan name */}
-              <div className="flex items-center gap-2 mb-4">
-                <h3 className="text-2xl font-bold text-gray-900">{plan.name}</h3>
-                {plan.badge && (
-                  <span className="text-sm text-gray-400">{plan.badge}</span>
+            {/* Plan name + badge */}
+            <div className="flex items-end gap-1.5">
+              <h3
+                className="text-xl font-medium leading-tight"
+                style={{ color: C.text }}
+              >
+                {plan.name}
+              </h3>
+              {plan.badge && (
+                <span
+                  className="text-xs font-medium mb-px"
+                  style={{ color: C.muted }}
+                >
+                  {plan.badge}
+                </span>
+              )}
+            </div>
+
+            {/* Yearly / Monthly toggle (Farmer & Consultant only) */}
+            {pricing !== null && (
+              <div
+                className="flex rounded-full p-1 self-start shrink-0"
+                style={{
+                  backgroundColor: C.toggleBg,
+                  width: "240px",
+                  height: "36px",
+                }}
+              >
+                <button
+                  onClick={() => setBilling("yearly")}
+                  className={`flex-1 flex items-center justify-center gap-1 rounded-full text-[13px] font-medium transition-all ${
+                    billing === "yearly" ? "bg-white shadow-sm" : ""
+                  }`}
+                  style={{ color: billing === "yearly" ? C.text : C.muted }}
+                >
+                  Yearly
+                  <span
+                    className="rounded-[6px] px-1 text-[12px] font-medium leading-4"
+                    style={{ backgroundColor: C.badgeBg, color: C.badgeText }}
+                  >
+                    -15%
+                  </span>
+                </button>
+                <button
+                  onClick={() => setBilling("monthly")}
+                  className={`flex-1 flex items-center justify-center rounded-full text-[13px] font-medium transition-all ${
+                    billing === "monthly" ? "bg-white shadow-sm" : ""
+                  }`}
+                  style={{ color: billing === "monthly" ? C.text : C.muted }}
+                >
+                  Monthly
+                </button>
+              </div>
+            )}
+
+            {/* Price */}
+            {pricing ? (
+              <div className="flex flex-col gap-1">
+                <div className="flex items-end gap-1">
+                  <span
+                    className="text-2xl font-medium"
+                    style={{ color: C.text, lineHeight: "30px" }}
+                  >
+                    {pricing.price}
+                  </span>
+                  <span
+                    className="text-sm"
+                    style={{ color: C.muted, lineHeight: "22px" }}
+                  >
+                    /month
+                  </span>
+                </div>
+                {pricing.annual && (
+                  <p className="text-sm" style={{ color: C.faint }}>
+                    {pricing.annual}
+                  </p>
                 )}
               </div>
-
-              {/* Toggle (Farmer & Consultant only) */}
-              {pricing !== null && (
-                <div className="inline-flex bg-gray-100 rounded-full p-1 mb-4 self-start">
-                  <button
-                    onClick={() => setBilling("yearly")}
-                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all ${
-                      billing === "yearly"
-                        ? "bg-white shadow-sm text-gray-900"
-                        : "text-gray-500 hover:text-gray-700"
-                    }`}
-                  >
-                    Yearly
-                    <span className="text-xs font-semibold text-emerald-500">-15%</span>
-                  </button>
-                  <button
-                    onClick={() => setBilling("monthly")}
-                    className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all ${
-                      billing === "monthly"
-                        ? "bg-white shadow-sm text-gray-900"
-                        : "text-gray-500 hover:text-gray-700"
-                    }`}
-                  >
-                    Monthly
-                  </button>
-                </div>
-              )}
-
-              {/* Price */}
-              {pricing ? (
-                <>
-                  <div className="mb-1">
-                    <span className="text-4xl font-bold text-gray-900">{pricing.price}</span>
-                    <span className="text-sm text-gray-500 ml-1">/month</span>
-                  </div>
-                  {pricing.annual ? (
-                    <p className="text-sm text-gray-400 mb-3">{pricing.annual}</p>
-                  ) : (
-                    <div className="mb-3" />
-                  )}
-                </>
-              ) : (
-                <p className="text-3xl font-bold text-gray-900 mb-3">Custom Pricing</p>
-              )}
-
-              {/* Description */}
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                {plan.description}
+            ) : (
+              <p
+                className="text-2xl font-medium"
+                style={{ color: C.text, lineHeight: "30px" }}
+              >
+                Custom Pricing
               </p>
+            )}
 
-              {/* Add-ons */}
-              {pricing && pricing.addOns.length > 0 && (
-                <div className="space-y-2.5 pb-5 border-b border-gray-100 mb-5">
-                  {pricing.addOns.map((addon) => (
-                    <div key={addon.name} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600">{addon.name}</span>
-                      <span className="text-sm">
-                        <span className="font-bold text-gray-900">{addon.price}</span>
-                        <span className="text-gray-400 text-xs">{addon.unit}</span>
+            {/* Description */}
+            <p
+              className="text-sm"
+              style={{ color: C.text, lineHeight: "135%" }}
+            >
+              {plan.description}
+            </p>
+
+            {/* Add-ons */}
+            {pricing && pricing.addOns.length > 0 && (
+              <div className="flex flex-col gap-3">
+                {pricing.addOns.map((addon) => (
+                  <div
+                    key={addon.name}
+                    className="flex items-start justify-between"
+                  >
+                    <span className="text-sm" style={{ color: C.addon }}>
+                      {addon.name}
+                    </span>
+                    <div className="flex items-center">
+                      <span
+                        className="text-sm font-medium"
+                        style={{ color: C.addon }}
+                      >
+                        {addon.price}
+                      </span>
+                      <span className="text-sm" style={{ color: C.faint }}>
+                        {addon.unit}
                       </span>
                     </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Contact Us (Enterprise only) — subtle outlined style */}
-              {plan.contactCta && (
-                <div className="pb-5 border-b border-gray-100 mb-5">
-                  <a
-                    href="mailto:support@numanac.com"
-                    className="flex items-center justify-center w-full py-2.5 rounded-xl text-sm font-medium text-gray-600 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors"
-                  >
-                    Contact Us
-                  </a>
-                </div>
-              )}
-
-              {/* Features */}
-              <ul className="space-y-3 flex-1">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    {f}
-                  </li>
+                  </div>
                 ))}
-              </ul>
-            </div>
+              </div>
+            )}
+
+            {/* Contact Us (Enterprise only) — subtle to avoid visual dominance */}
+            {plan.contactCta && (
+              <a
+                href="mailto:support@numanac.com"
+                className="flex items-center justify-center w-full rounded-md text-sm font-medium transition-colors"
+                style={{
+                  height: "44px",
+                  color: C.addon,
+                  border: `1px solid ${C.divider}`,
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.04)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "transparent")
+                }
+              >
+                Contact Us
+              </a>
+            )}
+
+            {/* Divider */}
+            <div style={{ borderTop: `1px solid ${C.divider}` }} />
+
+            {/* Features */}
+            <ul className="flex flex-col gap-3">
+              {plan.features.map((f) => (
+                <li key={f} className="flex items-start gap-2">
+                  {/* Custom SVG checkmark matching numanac.ai/pricing */}
+                  <svg
+                    width="15"
+                    height="11"
+                    viewBox="0 0 15 11"
+                    fill="none"
+                    style={{ flexShrink: 0, marginTop: "3.5px" }}
+                  >
+                    <path
+                      d="M1 5.5L5.5 10L14 1"
+                      stroke={C.check}
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span
+                    className="text-sm"
+                    style={{ color: C.textFeature, lineHeight: "18px" }}
+                  >
+                    {f}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         );
       })}
