@@ -96,7 +96,7 @@ export default function TeamGuidePage() {
                 step={5}
                 title='Tap "Confirm Seat Update"'
                 description="Confirm the change. You'll be taken to the payment screen to complete the purchase. Seats are billed per month and become available immediately after payment."
-                placeholder="numanac-team-seats-confirm.png"
+                // placeholder="numanac-team-seats-confirm.png"
               />
             </div>
           </section>
@@ -132,7 +132,7 @@ export default function TeamGuidePage() {
                 title='Tap "Send Invitation"'
                 description="The team member will receive an email invitation to join. They need to accept it and create (or log into) their Numanac account."
                 tip="If the invitation email doesn't arrive, ask the team member to check their spam or junk folder."
-                placeholder="numanac-team-invite-send.png"
+                // placeholder="numanac-team-invite-send.png"
               />
             </div>
           </section>

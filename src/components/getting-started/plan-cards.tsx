@@ -58,7 +58,7 @@ const plans: Plan[] = [
       price: "$127.5",
       annual: "$1,530/year",
       addOns: [
-        { name: "Add Manager", price: "$204", unit: "/person" },
+        { name: "Add Manager", price: "$816", unit: "/person" },
         { name: "Add Recordkeeper", price: "$102", unit: "/person" },
         { name: "Add Client", price: "$51", unit: "/client" },
       ],
@@ -67,7 +67,7 @@ const plans: Plan[] = [
       price: "$150",
       annual: null,
       addOns: [
-        { name: "Add Manager", price: "$20", unit: "/person" },
+        { name: "Add Manager", price: "$80", unit: "/person" },
         { name: "Add Recordkeeper", price: "$10", unit: "/person" },
         { name: "Add Client", price: "$5", unit: "/client" },
       ],
