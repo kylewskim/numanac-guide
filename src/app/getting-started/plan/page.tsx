@@ -2,13 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { ArrowRight, Clock, Check } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -19,80 +12,48 @@ export const metadata: Metadata = {
 const plans = [
   {
     name: "Farmer",
-    target: "For farmers managing their own operation",
-    price: "Farmer plan",
-    color: "border-primary",
-    headerColor: "bg-primary text-white",
+    badge: null,
+    price: { monthly: "$17", annual: "$204/year" },
+    description:
+      "Manage every aspect of your farm efficiently with tools built for daily operations and growth.",
+    addOns: [
+      { name: "Add Manager", price: "$204", unit: "/person" },
+      { name: "Add Recordkeeper", price: "$102", unit: "/person" },
+    ],
+    ctaColor: "bg-primary hover:bg-primary/90",
     features: [
-      "Manage your own farm",
-      "Unlimited field boundaries",
-      "Voice record logging",
-      "Alma AI assistant",
-      "Task management",
-      "Team collaboration",
-      "Weather data",
+      "AI-powered voice, text, image, and file logging for farm operations",
+      "Full multilingual logging support, 180+ languages",
+      "Task logging, assignment, and management. Team collaboration",
+      "Weather and geo-tagged logs automatically linked to each record",
+      "Alma AI Copilot for instant answers, smart reports, and decision support",
     ],
   },
   {
     name: "Consultant",
-    target: "For consultants managing multiple client farms",
-    price: "Consultant plan",
-    color: "border-gray-200",
-    headerColor: "bg-gray-800 text-white",
+    badge: "+ 30 clients",
+    price: { monthly: "$127.5", annual: "$1,530/year" },
+    description:
+      "Oversee up to 30 client farms with smart tools for data, insights, and collaboration.",
+    addOns: [
+      { name: "Add Manager", price: "$816", unit: "/person" },
+      { name: "Add Recordkeeper", price: "$204", unit: "/person" },
+      { name: "Add Client", price: "$51", unit: "/client" },
+    ],
+    ctaColor: "bg-gray-900 hover:bg-gray-800",
     features: [
-      "Manage up to 30 client farms",
-      "Separate workspace per client",
-      "All Farmer plan features",
-      "Client portal access",
-      "Multi-farm reporting",
+      "Everything included in the Farmer Plan",
+      "Manage multiple clients and farms in dedicated workspaces",
+      "Client data isolation to ensure privacy and context separation",
+      "Cross-client visibility for task tracking and farm performance",
+      "Alma AI Copilot insights tailored to each client and farm context",
     ],
-  },
-];
-
-const addOns = [
-  {
-    plan: "Farmer",
-    color: "bg-primary/5 border-primary/20",
-    labelColor: "text-primary",
-    items: [
-      { name: "Manager Add-on", monthly: "$20/month", annual: "$204/year" },
-      { name: "Farmer Recordkeeper Seats", monthly: "$10/month", annual: "$102/year" },
-    ],
-  },
-  {
-    plan: "Consultant",
-    color: "bg-gray-50 border-gray-200",
-    labelColor: "text-gray-700",
-    items: [
-      { name: "Manager Add-on", monthly: "$80/month", annual: "$816/year" },
-      { name: "Consultant Recordkeeper Seats", monthly: "$20/month", annual: "$204/year" },
-      { name: "Client Add-on", monthly: "$5/month", annual: "$51/year" },
-    ],
-  },
-];
-
-const faqs = [
-  {
-    q: "What is the difference between Farmer and Consultant?",
-    a: "Farmer is for people who manage their own farm directly. Consultant is for agricultural consultants or agents who manage farms for multiple clients — it gives you a separate, secure workspace for each client.",
-  },
-  {
-    q: "Is there a free trial?",
-    a: "Yes! All plans include a 1-month free trial. No credit card required to start.",
-  },
-  {
-    q: "Can I change my plan later?",
-    a: "Yes. You can upgrade or change your plan at any time from Settings → Billing & Subscription.",
-  },
-  {
-    q: "How many team members can I invite?",
-    a: "You can add team seats based on your plan. Go to Settings → Plan to add more seats at any time.",
   },
 ];
 
 export default function PlanPage() {
   return (
-    <div className="max-w-2xl">
+    <div>
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-4">
@@ -104,78 +65,76 @@ export default function PlanPage() {
         </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-3">Choose Your Plan</h1>
         <p className="text-gray-600 leading-relaxed">
-          Numanac has two plans. Choose the one that fits your situation.
+          Numanac has two plans. Choose the one that fits your situation. All plans include a 1-month free trial — no credit card required.
         </p>
       </div>
 
-      {/* Plan Comparison */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+      {/* Plan Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-10">
         {plans.map((plan) => (
-          <Card key={plan.name} className={`border-2 ${plan.color} overflow-hidden`}>
-            <div className={`px-6 py-4 ${plan.headerColor}`}>
-              <h3 className="font-bold text-lg">{plan.name}</h3>
-              <p className="text-sm opacity-80 mt-1">{plan.target}</p>
-            </div>
-            <CardContent className="p-6">
-              <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-4">
-                {plan.price}
+          <div
+            key={plan.name}
+            className="rounded-2xl border border-gray-200 bg-white overflow-hidden flex flex-col"
+          >
+            {/* Card body */}
+            <div className="p-6 flex-1 flex flex-col">
+              {/* Plan name */}
+              <div className="flex items-center gap-2 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900">{plan.name}</h3>
+                {plan.badge && (
+                  <span className="text-sm text-gray-400">{plan.badge}</span>
+                )}
+              </div>
+
+              {/* Price */}
+              <div className="mb-1">
+                <span className="text-4xl font-bold text-gray-900">{plan.price.monthly}</span>
+                <span className="text-sm text-gray-500 ml-1">/month</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-3">{plan.price.annual}</p>
+
+              {/* Description */}
+              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+                {plan.description}
               </p>
-              <ul className="space-y-2.5">
+
+              {/* Add-ons */}
+              <div className="space-y-2.5 pb-5 border-b border-gray-100">
+                {plan.addOns.map((addon) => (
+                  <div key={addon.name} className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">{addon.name}</span>
+                    <span className="text-sm">
+                      <span className="font-bold text-gray-900">{addon.price}</span>
+                      <span className="text-gray-400 text-xs">{addon.unit}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="py-5 border-b border-gray-100">
+                <a
+                  href="https://site.numanac.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center justify-center w-full py-3 rounded-xl text-sm font-semibold text-white transition-colors ${plan.ctaColor}`}
+                >
+                  Start 1 month Free Trial
+                </a>
+              </div>
+
+              {/* Features */}
+              <ul className="pt-5 space-y-3 flex-1">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
+                  <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
                     <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                     {f}
                   </li>
                 ))}
               </ul>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {/* Add-on Seats */}
-      <div className="mb-10">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">Add-on Seats</h2>
-        <p className="text-sm text-gray-500 mb-5">
-          Both plans let you purchase additional seats for your team. Pricing is per seat, per month.
-        </p>
-        <div className="space-y-4">
-          {addOns.map((group) => (
-            <div key={group.plan} className={`rounded-xl border p-5 ${group.color}`}>
-              <p className={`text-xs font-semibold uppercase tracking-wider mb-3 ${group.labelColor}`}>
-                {group.plan} Plan Add-ons
-              </p>
-              <div className="space-y-2">
-                {group.items.map((item) => (
-                  <div key={item.name} className="flex items-center justify-between text-sm">
-                    <span className="text-gray-700">{item.name}</span>
-                    <span className="text-gray-500">
-                      {item.monthly}
-                      <span className="text-gray-400 text-xs ml-2">({item.annual})</span>
-                    </span>
-                  </div>
-                ))}
-              </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* FAQ */}
-      <div className="mb-10">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Common Questions</h2>
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, i) => (
-            <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger className="text-left text-sm font-medium">
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-sm text-gray-600 leading-relaxed">
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+          </div>
+        ))}
       </div>
 
       {/* Next Step */}
